@@ -1,14 +1,18 @@
 <div>
-    <div class="max-w-xs bg-white shadow-lg rounded-lg overflow-hidden my-10">
-        <div class="px-4 py-2">
-            <h1 class="text-gray-900 font-bold text-3xl uppercase">NIKE AIR</h1>
-            <p class="text-gray-600 text-sm mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quos quidem sequi illum facere recusandae voluptatibus</p>
+    <div class="max-w-xs bg-white shadow-lg rounded-lg overflow-hidden my-10 mx-8">
+        <img class="h-40 w-auto object-cover my-4 mx-auto" src="https://contents.mediadecathlon.com/p1576984/k$6a51b953b7ec1ecb9d41ef3da1cf4aff/sq/M+scara+Snorkel+Superficie+Easybreath+Ni+os+6+10+a+os+Talla+XS+Azul.jpg" alt="NIKE AIR">
+        <div class="px-4 py-2 bg-gray-800">
+            <div class="mb-4">
+                <h1 class="text-white font-bold text-2xl">Máscara de buceo</h1>
+                <p class="text-white text-sm mt-1">Máscara de snorkel EasyBreath con pantalla anti-vaho</p>
+            </div>
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="text-white line-through font-bold text-lg inline">$129</h1>
+                    <h1 class="text-red-600 font-bold ml-2 text-3xl inline">$69</h1>
+                </div>
+                <button class="px-3 py-1 bg-yellow-500 text-sm text-gray-800 font-semibold rounded">Añadir al carrito</button>
+            </div>
         </div>
-        <img class="h-56 w-full object-cover mt-2" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="NIKE AIR">
-        <div class="flex items-center justify-between px-4 py-2 bg-gray-900">
-            <h1 class="text-gray-200 font-bold text-xl">$129</h1>
-            <button class="px-3 py-1 bg-gray-200 text-sm text-gray-900 font-semibold rounded">Add to card</button>
-        </div>
-        <!-- prueba -->
     </div>
 </div>

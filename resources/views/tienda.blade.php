@@ -22,7 +22,7 @@
                         <h1 class="text-4xl tracking-tight font-extrabold sm:text-5xl md:text-6xl">
                             <span class="block text-gray-900 xl:inline">Sorprende a</span>
                             <div class="block text-yellow-500 xl:inline">
-                                <span class="typer text" id="main" data-words="tu familia,tu novia,tu perro 🐶, tus amigos" data-delay="100" data-deleteDelay="2000"></span>
+                                <span class="typer text" id="main" data-words="tu familia,tu novia,tu perro 🐶, tus amigos, tu puta madre" data-delay="100" data-deleteDelay="2000"></span>
                                 <span class="cursor" data-owner="main"></span>
                             </div>
                         </h1>
@@ -41,10 +41,18 @@
             </div>
             <div class="lg:text-center mt-8">
                 <h2 class="text-lg text-yellow-500 font-semibold tracking-wide uppercase">Últimas ofertas</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Tenemos 400 productos en oferta
+                </p>
             </div>
-            <div>
+
+            <div class="justify-center flex flex-wrap">
+                <x-card-item-home></x-card-item-home>
+                <x-card-item-home></x-card-item-home>
                 <x-card-item-home></x-card-item-home>
             </div>
+
+            <x-footer></x-footer>
         </main>
 </body>
 </html>

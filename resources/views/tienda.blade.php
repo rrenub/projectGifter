@@ -4,24 +4,47 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>🎁 Gifter</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
 
+    <!-- Libreria js para escribir solo -->
+    <script async src="https://unpkg.com/typer-dot-js@0.1.0/typer.js"></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-<h1>Hola brodel</h1>
-<div class="md:flex container border p-4">
-    <div class="md:flex-shrink-0">
-        <img class="rounded-lg md:w-56" src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=448&q=80" alt="Woman paying for a purchase">
-    </div>
-    <div class="mt-4 md:mt-0 md:ml-6">
-        <div class="uppercase tracking-wide text-sm text-indigo-600 font-bold">Marketing</div>
-        <a href="#" class="block mt-1 text-lg leading-tight font-semibold text-gray-900 hover:underline">Finding customers for your new business</a>
-        <p class="mt-2 text-gray-600">Getting a new business off the ground is a lot of hard work. Here are five ideas you can use to find your first customers.</p>
-    </div>
-</div>
+    <x-navigation-header></x-navigation-header>
+        <main>
+                <div class="max-w flex flex-shrink-0 shadow-md">
+                <div class="mx-10 px-8 mt-16 sm:text-center lg:text-left flex flex-col justify-start">
+                    <div>
+                        <h1 class="text-4xl tracking-tight font-extrabold sm:text-5xl md:text-6xl">
+                            <span class="block text-gray-900 xl:inline">Sorprende a</span>
+                            <div class="block text-yellow-500 xl:inline">
+                                <span class="typer text" id="main" data-words="tu familia,tu novia,tu perro 🐶, tus amigos" data-delay="100" data-deleteDelay="2000"></span>
+                                <span class="cursor" data-owner="main"></span>
+                            </div>
+                        </h1>
+                        <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-auto sm:mx-auto lg:mx-0">
+                            Mediante un sistema de eCommerce, puedes realizar compras online desde nuestra tienda. ¿No terminas de decidirte? Filtra y busca según las diferentes categorías y precios de forma fácil y cómoda
+                        </p>
+                        <div class="mt-6 flex flex-shrink-0 justify-start items-center mb-8">
+                            <x-search-bar></x-search-bar>
+                            <img src="img/search-24px.svg" class="ml-4 w-8 h-auto inline"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-4/5" style="clip-path:polygon(10% 0, 100% 0%, 100% 100%, 0 100%)">
+                    <img class="h-auto w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full mr-0" src="https://cdn.pixabay.com/photo/2017/12/13/00/23/christmas-3015776_1280.jpg" alt="">
+                </div>
+            </div>
+            <div class="lg:text-center mt-8">
+                <h2 class="text-lg text-yellow-500 font-semibold tracking-wide uppercase">Últimas ofertas</h2>
+            </div>
+            <div>
+                <x-card-item-home></x-card-item-home>
+            </div>
+        </main>
 </body>
 </html>

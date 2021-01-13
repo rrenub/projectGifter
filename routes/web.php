@@ -19,3 +19,6 @@ Route::get('/', function () {
 Route::get('/tienda', function () {
     return view('tienda');
 });
+Route::get('/catalogo', function () {
+    return view('catalogo');
+});

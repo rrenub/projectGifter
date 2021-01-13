@@ -9,5 +9,6 @@
             <h1 class="text-gray-200 font-bold text-xl">$129</h1>
             <button class="px-3 py-1 bg-gray-200 text-sm text-gray-900 font-semibold rounded">Add to card</button>
         </div>
+        <!-- prueba -->
     </div>
 </div>

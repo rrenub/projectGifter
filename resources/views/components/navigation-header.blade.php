@@ -5,17 +5,17 @@
                 <div class="flex items-center justify-between h-20">
                     <div class="flex items-center">
                         <div class="flex-shrink-0">
-                            <div class="flex flex-row items-center">
+                            <a href="/" class="flex flex-row items-center">
                                 <img class="h-8 w-auto mr-2" src="/img/giftbox.svg" alt="Workflow">
                                 <span class="text-white text-4xl font-bold">Gift</span>
                                 <span class="text-yellow-300 text-4xl font-bold mr-2">er</span>
-                            </div>
+                            </a>
                         </div>
                         <div class="block">
                             <div class="ml-10 flex items-baseline space-x-4">
-                                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Inicio</a>
+                                <a href="/" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Inicio</a>
 
-                                <a href="/catalogo" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Catálogo</a>
+                                <a href="/tienda" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Tienda</a>
 
                                 <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Regalo personalizado</a>
 

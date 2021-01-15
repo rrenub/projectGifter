@@ -1,5 +1,5 @@
 <div>
-    <div class="max-w-xs bg-white shadow-lg rounded-lg overflow-hidden my-10 mx-8">
+    <div class="max-w-xs bg-white shadow-lg rounded-lg overflow-hidden my-2 mx-2">
         <img class="h-40 w-auto object-cover my-4 mx-auto" src="https://contents.mediadecathlon.com/p1576984/k$6a51b953b7ec1ecb9d41ef3da1cf4aff/sq/M+scara+Snorkel+Superficie+Easybreath+Ni+os+6+10+a+os+Talla+XS+Azul.jpg" alt="NIKE AIR">
         <div class="px-4 py-2 bg-gray-800">
             <div class="mb-4">

@@ -13,21 +13,27 @@
                         </div>
                         <div class="block">
                             <div class="ml-10 flex items-baseline space-x-4">
+<<<<<<< Updated upstream
                                 <a href="/" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Inicio</a>
 
                                 <a href="/tienda" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Tienda</a>
+=======
+                                <a href="#" class="text-gray-300 hover:bg-gray-700 duration-200 hover:text-white px-3 py-2 rounded-md text-base font-medium">Inicio</a>
 
-                                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Regalo personalizado</a>
+                                <a href="/catalogo" class="text-gray-300 hover:bg-gray-700 duration-200 hover:text-white px-3 py-2 rounded-md text-base font-medium">Catálogo</a>
+>>>>>>> Stashed changes
+
+                                <a href="#" class="text-gray-300 hover:bg-gray-700 duration-200 hover:text-white px-3 py-2 rounded-md text-base font-medium">Regalo personalizado</a>
 
                             </div>
                         </div>
                     </div>
                     <div class="hidden md:block">
                         <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-                            <a href="#" class="whitespace-nowrap text-base font-medium text-gray-300 px-3 py-2 hover:text-white hover:bg-gray-700 rounded">
+                            <a href="login" class="whitespace-nowrap text-base font-medium text-gray-300 px-3 py-2 duration-200 hover:text-white hover:bg-gray-700 rounded">
                                 Entrar
                             </a>
-                            <a href="#" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-yellow-600 hover:bg-yellow-800">
+                            <a href="register" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-yellow-600 duration-200 hover:bg-yellow-800">
                                 Regístrate
                             </a>
                         </div>

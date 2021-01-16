@@ -89,12 +89,15 @@
                 </div>
             </div>
             <div class="justify-center flex flex-wrap">
-                <x-card-item-home></x-card-item-home>
-                <x-card-item-home></x-card-item-home>
-                <x-card-item-home></x-card-item-home>
-                <x-card-item-home></x-card-item-home>
-                <x-card-item-home></x-card-item-home>
-                <x-card-item-home></x-card-item-home>
+               @foreach($productos as $producto)
+                    <x-card-item
+                        name="{{ $producto->nombre }}"
+                        description="{{ $producto->descripcion }}"
+                        price="{{ $producto->precio }}"
+                        idProd="{{ $producto->id }}"
+                        img="{{ $producto->img }}">
+                    </x-card-item>
+                @endforeach
             </div>
             <!--  PASAR PÁGINAS -->
             <x-paginator></x-paginator>

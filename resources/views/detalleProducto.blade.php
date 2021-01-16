@@ -61,9 +61,7 @@
                 <span class="block text-black xl:inline">Artículos relacionados</span>
             </h1>
             <div class="justify-center flex flex-wrap">
-                <x-card-item-home></x-card-item-home>
-                <x-card-item-home></x-card-item-home>
-                <x-card-item-home></x-card-item-home>
+
             </div>
         </div>
     </div>

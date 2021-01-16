@@ -16,9 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/tienda', function () {
-    return view('catalogo');
-});
+Route::get('/tienda', [\App\Http\Controllers\ShopController::class, 'mostrarTienda']);
 Route::get('/login', function () {
     return view('login');
 });

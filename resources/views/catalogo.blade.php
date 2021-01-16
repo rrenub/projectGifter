@@ -23,22 +23,6 @@
         <!-- CONTENIDO -->
         <aside>
             <form method="get" action="filtrar" class="px-6 py-4 mb-2 mt-4 mb-8">
-                <!--  PRECIO -->
-                <div class="uppercase tracking-wide text-c2 mb-4">Precio</div>
-                <div class="flex -mx-3 items-baseline">
-                    <div class="w-1/2 px-3">
-                        <div class="flex">
-                            <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i class="mdi mdi-account-outline text-gray-400 text-lg"></i></div>
-                            <input type="text" name="precio_desde" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-gray-500" placeholder="Desde">
-                        </div>
-                    </div>
-                    <div class="w-1/2 px-3">
-                        <div class="flex">
-                            <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i class="mdi mdi-account-outline text-gray-400 text-lg"></i></div>
-                            <input type="text" name="precio_hasta" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-gray-500" placeholder="Hasta">
-                        </div>
-                    </div>
-                </div>
 
 
                 <!--  CATEGORÍAS -->
@@ -53,7 +37,7 @@
                 <!--  CATEGORÍAS -->
                 <div class="uppercase tracking-wide text-c2 mb-4 mt-6">En venta</div>
                 <div class="flex cursor-pointer border px-4 py-2 text-lg text-grey-darkest">
-                    <input type="checkbox" id="oferta" name="oferta" value="oferta">
+                    <input type="radio" id="oferta" name="oferta" value="oferta">
                     <label for="oferta" class="ml-4">En oferta</label>
                 </div>
 

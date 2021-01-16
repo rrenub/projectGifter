@@ -47,9 +47,24 @@
             </div>
 
             <div class="justify-center flex flex-wrap">
-                <x-card-item-home></x-card-item-home>
-                <x-card-item-home></x-card-item-home>
-                <x-card-item-home></x-card-item-home>
+                <x-card-item-sale name="Máscara de buceo"
+                                  description="Máscara de snorkel"
+                                  price="200"
+                                  idProd="2"
+                                  sale="300">
+                </x-card-item-sale>
+                <x-card-item-sale name="Máscara de buceo"
+                                  description="Máscara de snorkel"
+                                  price="200"
+                                  idProd="2"
+                                  sale="300">
+                </x-card-item-sale>
+                <x-card-item-sale name="Máscara de buceo"
+                                  description="Máscara de snorkel"
+                                  price="200"
+                                  idProd="2"
+                                  sale="300">
+                </x-card-item-sale>
             </div>
 
             <x-footer></x-footer>

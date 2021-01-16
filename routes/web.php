@@ -13,10 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //  - VISTAS -
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [\App\Http\Controllers\ShopController::class, 'mostrarInicio']);
+
 Route::get('/tienda', [\App\Http\Controllers\ShopController::class, 'mostrarTienda']);
+
 Route::get('/login', function () {
     return view('login');
 });
@@ -34,3 +34,4 @@ Route::get('/procesarLogin', 'UsuariosController@procesarLogin');
 Route::get('/procesarRegister', 'UsuariosController@procesarRegistro');
 
 Route::get('/filtrar', [\App\Http\Controllers\ShopController::class, 'filtrar']);
+Route::get('/ofertas', [\App\Http\Controllers\ShopController::class, 'ofertas']);

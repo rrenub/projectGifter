@@ -10,8 +10,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
 
     <!-- Libreria js para escribir solo -->
-    <script async src="https://unpkg.com/typer-dot-js@0.1.0/typer.js"></script>
+    <script src="https://unpkg.com/typer-dot-js@0.1.0/typer.js"></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- JQuery -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
     <x-navigation-header></x-navigation-header>
@@ -22,7 +25,7 @@
                         <h1 class="text-4xl tracking-tight font-extrabold sm:text-5xl md:text-6xl">
                             <span class="block text-gray-900 xl:inline">Sorprende a</span>
                             <div class="block text-yellow-500 xl:inline">
-                                <span class="typer text" id="main" data-words="tu familia,tu novia,tu perro 🐶, tus amigos, tu puta madre" data-delay="100" data-deleteDelay="2000"></span>
+                                <span class="typer text" id="main" data-words="tu familia,tu novia,tu perro 🐶,tus amigos,tu hija" data-delay="100" data-deleteDelay="2000"></span>
                                 <span class="cursor" data-owner="main"></span>
                             </div>
                         </h1>
@@ -42,12 +45,35 @@
             <div class="lg:text-center mt-8">
                 <h2 class="text-lg text-yellow-500 font-semibold tracking-wide uppercase">Últimas ofertas</h2>
                 <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                    Tenemos 400 productos en oferta
+                    Tenemos <span id="articulos-oferta"></span> productos en oferta
                 </p>
+                <div class="justify-center px-8 py-4 flex flex-wrap">
+                    @foreach($productos as $producto)
+                        <x-card-item-sale
+                            name="{{ $producto->nombre }}"
+                            description="{{ $producto->descripcion }}"
+                            price="{{ $producto->precio }}"
+                            idProd="{{ $producto->id }}"
+                            sale="{{ $producto->precio_rebaja }}"
+                            img="{{ $producto->img }}">
+                        </x-card-item-sale>
+                    @endforeach
+                </div>
+                <a href="/tienda" class="mt-6 align-middle whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-yellow-600 duration-200 hover:bg-yellow-400">
+                    Visita la tienda
+                </a>
             </div>
 
-            <div class="justify-center flex flex-wrap">
-            </div>
+            <script>
+                function getNumOfertas() {
+                    axios.get('/ofertas')
+                        .then(res => {
+                            document.getElementById('articulos-oferta').innerHTML = res.data;
+                        })
+                    setTimeout(get_num_users, 10000);
+                }
+                getNumOfertas();
+            </script>
 
             <x-footer></x-footer>
         </main>

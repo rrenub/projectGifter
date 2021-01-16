@@ -16,6 +16,16 @@ class ShopController extends Controller
         return view('catalogo')->with('productos', $productos);
     }
 
+    public function mostrarInicio() {
+        $productosOferta = Producto::select('productos.*',
+            DB::raw('(SELECT img FROM productos_img WHERE id_producto = productos.id LIMIT 1) AS img'))
+            ->where('rebajado', 1)
+            ->take(3)
+            ->get();
+
+        return view('index')->with('productos', $productosOferta);
+    }
+
     public function filtrar() {
         $condicion = array();
         if(!(isset($_GET['oferta']) || isset($_GET['categoria']))) {
@@ -43,5 +53,9 @@ class ShopController extends Controller
 
         return view('catalogo')->with('productos', $productos)
                                     ->with('filtro', $condicion);
+    }
+
+    public function ofertas() {
+        return count(Producto::where('rebajado', 1)->get());
     }
 }

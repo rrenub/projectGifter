@@ -49,6 +49,10 @@ class UsuariosController extends Controller
             $email = $_GET ['email'];
             $password = $_GET ['pass'];
 
+            if(!($this->comprobarUser('email'))) {
+                return redirect('/');
+            }
+
             $usuario = new Usuario();
             $usuario = Usuario::where('email',$email)->get();
 
@@ -67,10 +71,10 @@ class UsuariosController extends Controller
                     return redirect()->to('/');
                 }
             }
-        }else{
+
+        } else {
             echo "<h3>Rellene los datos</h3>";
         }
-        echo "<h3>El email no existe</h3>";
     }
 
 

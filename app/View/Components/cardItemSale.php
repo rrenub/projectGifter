@@ -11,19 +11,21 @@ class cardItemSale extends Component
     public $price;
     public $idProd;
     public $sale;
+    public $img;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($name, $description, $price, $idProd, $sale)
+    public function __construct($name, $description, $price, $idProd, $sale, $img)
     {
         $this->name = $name;
         $this->description = $description;
         $this->price = $price;
         $this->idProd = $idProd;
         $this->sale = $sale;
+        $this->img = $img;
     }
 
     /**

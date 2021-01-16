@@ -22,7 +22,7 @@
     <section class="flex-grow grid grid-cols-4 gap-4 m-4">
         <!-- CONTENIDO -->
         <aside>
-            <div class="px-6 py-4 mb-2 mt-4 mb-8">
+            <form method="get" action="filtrar" class="px-6 py-4 mb-2 mt-4 mb-8">
                 <!--  PRECIO -->
                 <div class="uppercase tracking-wide text-c2 mb-4">Precio</div>
                 <div class="flex -mx-3 items-baseline">
@@ -75,11 +75,10 @@
                     </select>
                 </div>
 
-                <a href="#" class="mt-6 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-yellow-600 hover:bg-yellow-800">
+                <button type="submit" class="mt-4 px-4 py-2 bg-yellow-500 text-sm text-white font-semibold rounded">
                     Filtrar productos
-                </a>
-
-            </div>
+                </button>
+            </form>
         </aside>
 
         <aside class="col-span-3">
@@ -91,22 +90,29 @@
             </div>
             <div class="justify-center flex flex-wrap">
                @foreach($productos as $producto)
-                    <x-card-item
-                        name="{{ $producto->nombre }}"
-                        description="{{ $producto->descripcion }}"
-                        price="{{ $producto->precio }}"
-                        idProd="{{ $producto->id }}"
-                        img="{{ $producto->img }}">
-                    </x-card-item>
+                   @if($producto->rebajado)
+                        <x-card-item-sale
+                            name="{{ $producto->nombre }}"
+                            description="{{ $producto->descripcion }}"
+                            price="{{ $producto->precio }}"
+                            idProd="{{ $producto->id }}"
+                            sale="{{ $producto->precio_rebaja }}"
+                            img="{{ $producto->img }}">
+                        </x-card-item-sale>
+                    @else
+                        <x-card-item
+                            name="{{ $producto->nombre }}"
+                            description="{{ $producto->descripcion }}"
+                            price="{{ $producto->precio }}"
+                            idProd="{{ $producto->id }}"
+                            img="{{ $producto->img }}">
+                        </x-card-item>
+                    @endif
                 @endforeach
             </div>
             <!--  PASAR PÁGINAS -->
             <x-paginator></x-paginator>
         </aside>
-
-
-
-
     </section>
     <x-footer></x-footer>
 </main>

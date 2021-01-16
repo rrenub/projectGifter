@@ -9,11 +9,6 @@ use Illuminate\Support\Facades\DB;
 class ShopController extends Controller
 {
     public function mostrarTienda() {
-        $productos = DB::table('productos')
-                        ->join('productos_img', 'productos_img.id_producto','=','productos.id')
-                        ->select('productos.*', 'productos_img.img')
-                        ->get();
-
         $productos = Producto::select('productos.*',
                         DB::raw('(SELECT img FROM productos_img WHERE id_producto = productos.id LIMIT 1) AS img'))
                         ->get();
@@ -22,8 +17,31 @@ class ShopController extends Controller
     }
 
     public function filtrar() {
-        if(isset($_GET['categoria'])) {
-
+        $condicion = array();
+        if(!(isset($_GET['oferta']) || isset($_GET['categoria']))) {
+            redirect('/tienda')->with('error', 'No se ha seleccionado ningún filtro. Mostrando todos los artículos');
         }
+
+        if(isset($_GET['oferta'])) {
+            $condicion['rebajado'] = 1;
+        }
+
+        if(isset($_GET['categoria'])) {
+            $condicion['categorias.nombre'] = $_GET['categoria'];
+
+            $productos = DB::table('productos')
+                ->join('categorias', 'categorias.id', '=', 'productos.id_categoria')
+                ->where($condicion)
+                ->select('productos.*', DB::raw('(SELECT img FROM productos_img WHERE id_producto = productos.id LIMIT 1) AS img'))
+                ->get();
+        } else {
+            $productos = Producto::select('productos.*',
+                DB::raw('(SELECT img FROM productos_img WHERE id_producto = productos.id LIMIT 1) AS img'))
+                ->where($condicion)
+                ->get();
+        }
+
+        return view('catalogo')->with('productos', $productos)
+                                    ->with('filtro', $condicion);
     }
 }

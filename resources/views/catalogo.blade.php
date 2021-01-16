@@ -23,26 +23,10 @@
         <!-- CONTENIDO -->
         <aside>
             <form method="get" action="filtrar" class="px-6 py-4 mb-2 mt-4 mb-8">
-                <!--  PRECIO -->
-                <div class="uppercase tracking-wide text-c2 mb-4">Precio</div>
-                <div class="flex -mx-3 items-baseline">
-                    <div class="w-1/2 px-3">
-                        <div class="flex">
-                            <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i class="mdi mdi-account-outline text-gray-400 text-lg"></i></div>
-                            <input type="text" name="precio_desde" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-gray-500" placeholder="Desde">
-                        </div>
-                    </div>
-                    <div class="w-1/2 px-3">
-                        <div class="flex">
-                            <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i class="mdi mdi-account-outline text-gray-400 text-lg"></i></div>
-                            <input type="text" name="precio_hasta" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-gray-500" placeholder="Hasta">
-                        </div>
-                    </div>
-                </div>
 
 
                 <!--  CATEGORÍAS -->
-                <div class="uppercase tracking-wide text-c2 mb-4 mt-6">Categorías</div>
+                <div class="uppercase tracking-wide text-c2 mb-4">Categorías</div>
                 <?php
                     $categorias = \App\Categoria::all();
                     foreach ($categorias as $categoria):
@@ -53,37 +37,29 @@
                 <!--  CATEGORÍAS -->
                 <div class="uppercase tracking-wide text-c2 mb-4 mt-6">En venta</div>
                 <div class="flex cursor-pointer border px-4 py-2 text-lg text-grey-darkest">
-                    <input type="checkbox" id="oferta" name="oferta" value="oferta">
+                    <input type="radio" id="oferta" name="oferta" value="oferta">
                     <label for="oferta" class="ml-4">En oferta</label>
                 </div>
 
-
-
-                <!--  CATEGORÍAS -->
+                <!--  CATEGORÍAS
                 <hr/>
                 <div class="font-bold tracking-wide text-c2 mb-4 mt-6">Ordenar por</div>
                 <div class="mb-2">
                     <select class="w-100" name="cars" id="cars">
-                        <option value="volvo">De mayor a menor precio</option>
-                        <option value="saab">De menor a mayor precio</option>
-                        <option value="saab">De la A a la Z</option>
-                        <option value="saab">De la Z a la A</option>
+                        <option value="mayor-menor-precio">De mayor a menor precio</option>
+                        <option value="menor-mayor-precio">De menor a mayor precio</option>
+                        <option value="A-Z-alfabetico">De la A a la Z</option>
                     </select>
                 </div>
+                -->
 
-                <button type="submit" class="mt-4 px-4 py-2 bg-yellow-500 text-sm text-white font-semibold rounded">
+                <button type="submit" class="mt-8 px-4 py-2 bg-yellow-500 text-sm text-white font-semibold rounded">
                     Filtrar productos
                 </button>
             </form>
         </aside>
 
         <aside class="col-span-3">
-            <div class="flex m-4 justify-between font-bold">
-                <div class="flex items-center">
-                    <img class="w-8" src="/img/filter_alt-24px.svg">
-                    <p>Filtrando por categoría: Deportes</p>
-                </div>
-            </div>
             <div class="justify-center flex flex-wrap">
                @foreach($productos as $producto)
                    @if($producto->rebajado)

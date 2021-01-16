@@ -13,15 +13,9 @@
                         </div>
                         <div class="block">
                             <div class="ml-10 flex items-baseline space-x-4">
-<<<<<<< Updated upstream
                                 <a href="/" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Inicio</a>
 
                                 <a href="/tienda" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Tienda</a>
-=======
-                                <a href="#" class="text-gray-300 hover:bg-gray-700 duration-200 hover:text-white px-3 py-2 rounded-md text-base font-medium">Inicio</a>
-
-                                <a href="/catalogo" class="text-gray-300 hover:bg-gray-700 duration-200 hover:text-white px-3 py-2 rounded-md text-base font-medium">Catálogo</a>
->>>>>>> Stashed changes
 
                                 <a href="#" class="text-gray-300 hover:bg-gray-700 duration-200 hover:text-white px-3 py-2 rounded-md text-base font-medium">Regalo personalizado</a>
 

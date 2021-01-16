@@ -87,9 +87,6 @@
                     <img class="w-8" src="/img/filter_alt-24px.svg">
                     <p>Filtrando por categoría: Deportes</p>
                 </div>
-                <div>
-                    <button class="inline px-3 py-1 bg-yellow-500 text-sm text-white font-semibold rounded">Ordenar</button>
-                </div>
             </div>
             <div class="justify-center flex flex-wrap">
                 <x-card-item-home></x-card-item-home>

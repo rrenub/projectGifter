@@ -1,7 +1,7 @@
 <div>
     <div class="max-w-xs bg-white shadow-lg rounded-lg overflow-hidden my-2 mx-2">
         <a href="#">
-            <img class="h-40 w-auto object-cover my-4 mx-auto" src="{{ $img }}" alt="Imagen del producto {{ $name }}">
+            <img class="h-40 w-auto object-cover my-4 mx-auto rounded-xl" src="{{ $img }}" alt="Imagen del producto {{ $name }}">
         </a>
         <div class="px-4 py-2 bg-gray-800">
             <div class="mb-4">

@@ -8,7 +8,7 @@
                 <a href="#">
                     <h1 class="text-white font-bold text-xl truncate hover:text-yellow-500 cursor-pointer">{{ $name }}</h1>
                 </a>
-                <p class="text-white text-sm mt-1m truncate">{{ $description }}</p>
+                <p class="text-white text-sm mt-1 truncate">{{ $description }}</p>
             </div>
             <div class="flex items-center gap-4 justify-between">
                 <div>

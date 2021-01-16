@@ -20,4 +20,10 @@ class ShopController extends Controller
 
         return view('catalogo')->with('productos', $productos);
     }
+
+    public function filtrar() {
+        if(isset($_GET['categoria'])) {
+
+        }
+    }
 }

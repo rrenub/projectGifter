@@ -12,6 +12,7 @@
 </head>
 <body>
 <x-navigation-header></x-navigation-header>
+<x-notifications></x-notifications>
 
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js"></script>
@@ -21,7 +22,7 @@
 <div class="min-w-screen min-h-screen flex items-center justify-center px-5 py-5">
     <div class="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden" style="max-width:1000px">
         <div class="md:flex w-full">
-            <div class="hidden md:block w-1/2 bg-indigo-500">
+            <div class="hidden md:block w-1/2">
                 <img src="/img/foto-regalo-login.jpg" class="w-full h-full">
             </div>
             <div class="w-full md:w-1/2 py-10 px-5 md:px-10">

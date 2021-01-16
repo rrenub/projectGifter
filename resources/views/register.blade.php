@@ -12,6 +12,7 @@
 </head>
 <body>
 <x-navigation-header></x-navigation-header>
+<x-notifications></x-notifications>
 
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js"></script>

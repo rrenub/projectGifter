@@ -50,7 +50,7 @@ class UsuariosController extends Controller
             $password = $_GET ['pass'];
 
             if(!($this->comprobarUser('email'))) {
-                return redirect('/');
+                return redirect('/login')->with('error', 'El email o la contraseña es erróneo. Compruebe los campos introducidos');
             }
 
             $usuario = new Usuario();
@@ -68,12 +68,12 @@ class UsuariosController extends Controller
                     session(['user' => $id]);
                     session(['name' => $name]);
 
-                    return redirect()->to('/');
+                    return redirect('/')->with('exito', 'Ha iniciado sesión correctamente');
                 }
             }
 
         } else {
-            echo "<h3>Rellene los datos</h3>";
+            return redirect('/login')->with('error', 'Introduzca los campos correctamente');
         }
     }
 

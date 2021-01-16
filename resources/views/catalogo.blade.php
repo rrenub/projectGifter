@@ -18,6 +18,7 @@
 <body>
 <main class="flex flex-col h-screen">
     <x-navigation-header></x-navigation-header>
+    <x-notifications></x-notifications>
     <section class="flex-grow grid grid-cols-4 gap-4 m-4">
         <!-- CONTENIDO -->
         <aside>

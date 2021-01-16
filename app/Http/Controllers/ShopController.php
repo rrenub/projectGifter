@@ -18,6 +18,10 @@ class ShopController extends Controller
 
     public function filtrar() {
         $condicion = array();
+        if(!(isset($_GET['oferta']) || isset($_GET['categoria']))) {
+            redirect('/tienda')->with('error', 'No se ha seleccionado ningún filtro. Mostrando todos los artículos');
+        }
+
         if(isset($_GET['oferta'])) {
             $condicion['rebajado'] = 1;
         }
@@ -36,7 +40,8 @@ class ShopController extends Controller
                 ->where($condicion)
                 ->get();
         }
-        
-        return view('catalogo')->with('productos', $productos);
+
+        return view('catalogo')->with('productos', $productos)
+                                    ->with('filtro', $condicion);
     }
 }

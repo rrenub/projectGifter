@@ -26,7 +26,7 @@
 
 
                 <!--  CATEGORÍAS -->
-                <div class="uppercase tracking-wide text-c2 mb-4 mt-6">Categorías</div>
+                <div class="uppercase tracking-wide text-c2 mb-4">Categorías</div>
                 <?php
                     $categorias = \App\Categoria::all();
                     foreach ($categorias as $categoria):
@@ -41,21 +41,19 @@
                     <label for="oferta" class="ml-4">En oferta</label>
                 </div>
 
-
-
-                <!--  CATEGORÍAS -->
+                <!--  CATEGORÍAS
                 <hr/>
                 <div class="font-bold tracking-wide text-c2 mb-4 mt-6">Ordenar por</div>
                 <div class="mb-2">
                     <select class="w-100" name="cars" id="cars">
-                        <option value="volvo">De mayor a menor precio</option>
-                        <option value="saab">De menor a mayor precio</option>
-                        <option value="saab">De la A a la Z</option>
-                        <option value="saab">De la Z a la A</option>
+                        <option value="mayor-menor-precio">De mayor a menor precio</option>
+                        <option value="menor-mayor-precio">De menor a mayor precio</option>
+                        <option value="A-Z-alfabetico">De la A a la Z</option>
                     </select>
                 </div>
+                -->
 
-                <button type="submit" class="mt-4 px-4 py-2 bg-yellow-500 text-sm text-white font-semibold rounded">
+                <button type="submit" class="mt-8 px-4 py-2 bg-yellow-500 text-sm text-white font-semibold rounded">
                     Filtrar productos
                 </button>
             </form>

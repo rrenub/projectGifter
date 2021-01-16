@@ -12,6 +12,21 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+
+<?php
+    $idProdudcto = $_GET['id'];
+    $detalleProducto = \App\Producto::where('id', $idProdudcto)->get();
+
+    $nombre = $detalleProducto[0]['nombre'];
+    $descripcion = $detalleProducto[0]['descripcion'];
+    $precioNormal = $detalleProducto[0]['precio'];
+    $stock = $detalleProducto[0]['stock'];
+    $rebaja = $detalleProducto[0]['rebajado'];
+    $precioRebajado = $detalleProducto[0]['precio_rebaja'];
+
+    $imagenes = \App\ProductoImg::where('id_producto', $idProdudcto)->get();
+    ?>
+
 <main class="flex flex-col h-screen">
     <x-navigation-header></x-navigation-header>
     <section class="flex-grow grid">
@@ -21,7 +36,9 @@
         <!-- Galeria y opcion de compra -->
 
         <div class="col-span-1 rounded ml-8 mr-4 my-4">
-            <x-gallery></x-gallery>
+            <x-gallery
+                :items="$imagenes">
+            </x-gallery>
             <div class="w-full px-3 mt-8">
                 <div class="flex">
                  <button class="block w-full max-w-xs mr-2 bg-gray-200 text-black rounded-lg px-3 py-3 font-semibold duration-200 hover:bg-yellow-500">Comprar</button>
@@ -33,23 +50,33 @@
         <!-- Descripcion del articulo -->
 
         <div class="col-span-2 rounded mr-8 ml-4 my-4">
-            <div class="flex text-4xl tracking-tight font-bold sm:text-3xl md:text-3xl py-2 px-4 border-b-4 border-gray-700">
-                <h1>
-                    <span class="block text-black xl:inline">Nombre de artículo</span>
+            <div class="flex text-4xl tracking-tight font-bold py-4 px-4 border-b-4 border-gray-700">
+                <h1 class="w-4/6">
+                    <span class="flex text-black xl:inline align-middle">{{$nombre}}</span>
+                </h1>
+                <h1 class="w-2/6 text-right">
+                <?php
+                if($rebaja == 0){ ?>
+                    <span class="flex text-black xl:inline bg-yellow-500 px-2 py-1 rounded text-4xl">{{$precioNormal}}€</span>
+                <?php
+                }else{ ?>
+                    <span class="flex text-red-600 line-through xl:inline px-2 rounded text-3xl">{{$precioNormal}}€</span>
+                    <span class="flex text-black xl:inline bg-yellow-500 px-2 py-1 rounded text-4xl">{{$precioRebajado}}€</span>
+                <?php } ?>
                 </h1>
             </div>
-            <h1 class="text-xl tracking-tight font-bold sm:text-xl md:text-xl pt-6 px-4">
+            <h1 class="text-xl tracking-tight font-bold pt-6 px-4">
                 <span class="block text-black xl:inline">Descripción del artículo</span>
             </h1>
-            <div class="text-l tracking-tight sm:text-l md:text-l pt-2 px-4">
-                <span class="block text-gray-600 xl:inline">En este apartado se escribirá la descripción del artículo</span>
+            <div class="text-l tracking-tight sm:text-l md:text-l p-6 w-3/4 px-4">
+                <span class="block text-gray-600 xl:inline">{{$descripcion}}</span>
             </div>
         </div>
 
         <!-- Articulos relacionados -->
 
         <div class="col-span-3 m-8">
-            <h1 class="text-4xl tracking-tight font-bold sm:text-3xl md:text-3xl py-2 px-4 text-center border-b-4 border-gray-700">
+            <h1 class="text-2xl tracking-tight font-bold py-2 px-4 text-center border-b-4 border-gray-700">
                 <span class="block text-black xl:inline">Artículos relacionados</span>
             </h1>
             <div class="justify-center flex flex-wrap">
@@ -59,7 +86,7 @@
 
         <!-- Valoración del producto -->
         <div class="col-span-3 mx-8 my-4">
-            <h1 class="text-4xl tracking-tight font-bold sm:text-3xl md:text-3xl py-2 px-4 text-center border-b-4 border-gray-700">
+            <h1 class="text-2xl tracking-tight font-bold py-2 px-4 text-center border-b-4 border-gray-700">
                 <span class="block text-black xl:inline">Valoración del producto</span>
             </h1>
         </div>

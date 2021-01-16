@@ -20,6 +20,7 @@
         .image5 {
             content: url("https://randomwordgenerator.com/img/picture-generator/5ee3dc414954b10ff3d8992cc12c30771037dbf85254794e732f7ad7934e_640.jpg")
         }
+
     </style>
 </head>
 
@@ -27,22 +28,13 @@
 <section class="mx-auto max-w-2xl">
     <div class="relative">
         <!-- large image on slides -->
+        <?php
+        foreach($items as $imagen){ ?>
         <div class="mySlides hidden">
-            <div class="image1 w-full rounded shadow-md object-cover"></div>
+            <div style="content: url('{{$imagen['img']}}')" class="image1 w-full rounded shadow-md object-cover"></div>
         </div>
-        <div class="mySlides hidden">
-            <div class="image2 w-full rounded shadow-md object-cover"></div>
-        </div>
-        <div class="mySlides hidden">
-            <div class="image3 w-full rounded shadow-md object-cover"></div>
-        </div>
-        <div class="mySlides hidden">
-            <div class="image4 w-full rounded shadow-md object-cover"></div>
-        </div>
-        <div class="mySlides hidden">
-            <div class="image5 w-full rounded shadow-md object-cover"></div>
-        </div>
-
+       <?php }
+        ?>
         <!-- butttons -->
         <a class="absolute left-0 inset-y-0 flex items-center -mt-32 px-4 text-white hover:text-gray-800 cursor-pointer text-3xl font-extrabold" onclick="plusSlides(-1)">❮</a>
         <a class="absolute right-0 inset-y-0 flex items-center -mt-32 px-4 text-white hover:text-gray-800 cursor-pointer text-3xl font-extrabold" onclick="plusSlides(1)">❯</a>
@@ -50,21 +42,15 @@
 
         <!-- smaller images under description -->
         <div class="flex mt-8" >
+            <?php
+            $i=1;
+            foreach($items as $imagen){ ?>
             <div>
-                <img class="image1 description h-24 opacity-50 hover:opacity-100 cursor-pointer" src="#" onclick="currentSlide(1)" alt="Dog's Nose">
+                <img style="content: url('{{$imagen['img']}}')" class="description h-24 opacity-50 hover:opacity-100 cursor-pointer" src="#" onclick="currentSlide({{$i}})">
             </div>
-            <div>
-                <img class="image2 description h-24 opacity-50 hover:opacity-100 cursor-pointer" src="#" onclick="currentSlide(2)" alt="Lawnmower">
-            </div>
-            <div>
-                <img class="image3 description h-24 opacity-50 hover:opacity-100 cursor-pointer" src="#" onclick="currentSlide(3)" alt="Globe">
-            </div>
-            <div>
-                <img class="image4 description h-24 opacity-50 hover:opacity-100 cursor-pointer" src="#" onclick="currentSlide(4)" alt="Optical Illusion">
-            </div>
-            <div>
-                <img class="image5 description h-24 opacity-50 hover:opacity-100 cursor-pointer" src="#" onclick="currentSlide(5)" alt="Lips">
-            </div>
+    <?php    $i++;
+            }
+                ?>
         </div>
     </div>
 </section>

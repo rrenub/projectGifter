@@ -27,10 +27,10 @@ Route::get('/detalleProducto', function () {
     return view('detalleProducto');
 });
 
-Route::get('/filtrar', [\App\Http\Controllers\ShopController::class, 'filtrar']);
-
-
 //  - FUNCIONES -
+
 Route::get('/logOut', 'UsuariosController@cerrarSesion');
 Route::get('/procesarLogin', 'UsuariosController@procesarLogin');
 Route::get('/procesarRegister', 'UsuariosController@procesarRegistro');
+
+Route::get('/filtrar', [\App\Http\Controllers\ShopController::class, 'filtrar']);

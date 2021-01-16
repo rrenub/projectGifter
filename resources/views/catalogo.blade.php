@@ -60,12 +60,6 @@
         </aside>
 
         <aside class="col-span-3">
-            <div class="flex m-4 justify-between font-bold">
-                <div class="flex items-center">
-                    <img class="w-8" src="/img/filter_alt-24px.svg">
-                    <p>Filtrando por categoría: Deportes</p>
-                </div>
-            </div>
             <div class="justify-center flex flex-wrap">
                @foreach($productos as $producto)
                    @if($producto->rebajado)

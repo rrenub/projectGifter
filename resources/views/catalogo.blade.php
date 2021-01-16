@@ -60,7 +60,7 @@
         </aside>
 
         <aside class="col-span-3">
-            <div class="justify-center flex flex-wrap">
+            <div class="justify-start flex flex-wrap my-6">
                @foreach($productos as $producto)
                    @if($producto->rebajado)
                         <x-card-item-sale
@@ -83,7 +83,9 @@
                 @endforeach
             </div>
             <!--  PASAR PÁGINAS -->
-            <x-paginator></x-paginator>
+            <x-paginator
+                :items="$productos">
+            </x-paginator>
         </aside>
     </section>
     <x-footer></x-footer>

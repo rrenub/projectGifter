@@ -11,7 +11,7 @@ class ShopController extends Controller
     public function mostrarTienda() {
         $productos = Producto::select('productos.*',
                         DB::raw('(SELECT img FROM productos_img WHERE id_producto = productos.id LIMIT 1) AS img'))
-                        ->get();
+                        ->paginate(9);
 
         return view('catalogo')->with('productos', $productos);
     }
@@ -33,12 +33,12 @@ class ShopController extends Controller
                 ->join('categorias', 'categorias.id', '=', 'productos.id_categoria')
                 ->where($condicion)
                 ->select('productos.*', DB::raw('(SELECT img FROM productos_img WHERE id_producto = productos.id LIMIT 1) AS img'))
-                ->get();
+                ->paginate(9);
         } else {
             $productos = Producto::select('productos.*',
                 DB::raw('(SELECT img FROM productos_img WHERE id_producto = productos.id LIMIT 1) AS img'))
                 ->where($condicion)
-                ->get();
+                ->paginate(9);
         }
 
         return view('catalogo')->with('productos', $productos)

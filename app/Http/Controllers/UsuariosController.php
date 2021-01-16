@@ -18,7 +18,7 @@ class UsuariosController extends Controller
             $pass2 = $_GET ["pass2"];
 
             if ($this->comprobarUser($email) == true) {
-                return "<h3>Ya existe un usuario con ese email</h3>";
+                return redirect('/register')->with('error', 'Ya existe un usuario registrado con el email introducido');
             } else {
 
                 if ($pass2 == $pass1) {
@@ -30,15 +30,14 @@ class UsuariosController extends Controller
                     $usuario->contraseña = $pass1;
                     $usuario->save();
 
-                    return view('login');
-
+                    return redirect('/login')->with('exito', 'Se ha registrado correctamente. Inicie sesión para comenzar a usar su cuenta');
                 } else {
-                    echo "<h3>La contraseña es diferente</h3>";
+                    return redirect('/register')->with('error', 'Las contraseñas introducidas son diferentes');
                 }
             }
         }
         else {
-            echo "<h3>No se han introducido todos los parámmetros</h3>";
+            return redirect('/register')->with('error', 'Debe rellenar todos los campos');
         }
     }
 

@@ -99,7 +99,7 @@
             <h1 class="text-3xl tracking-tight font-bold py-4 text-center border-b-2 border-gray-700">
                 <span class="block text-black xl:inline">Artículos relacionados</span>
             </h1>
-            <div class="justify-left flex flex-wrap py-6">
+            <div class="justify-center flex flex-wrap py-6">
                 @if($cantidad==0)
                     <h1>Lo sentimos, no hay artículos relacionados</h1>
                 @else

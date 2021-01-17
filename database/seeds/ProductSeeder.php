@@ -34,10 +34,10 @@ class ProductSeeder extends Seeder
         $prod2 = new \App\Producto();
         $prod2->nombre = "Fire Stick TV";
         $prod2->descripcion = "Nuestro Fire TV Stick más asequible: reproducción en streaming rápida y con calidad Full HD. Viene con el mando por voz Alexa";
-        $prod2->precio = 25.99;
+        $prod2->precio = 29.99;
         $prod2->stock = 40;
         $prod2->rebajado = true;
-        $prod2->precio_rebaja = 29.99;
+        $prod2->precio_rebaja = 25.99;
         $prod2->id_categoria = 2;
         $prod2->save();
 
@@ -53,10 +53,10 @@ class ProductSeeder extends Seeder
         $prod4 = new \App\Producto();
         $prod4->nombre = "Curso de Surf iniciación";
         $prod4->descripcion = "La escuela Surfeando ofrece un curso de surf de 4 horas para iniciarse en el mundo de coger olas";
-        $prod4->precio = 65;
+        $prod4->precio = 100;
         $prod4->stock = 40;
         $prod4->rebajado = true;
-        $prod4->precio_rebaja = 100;
+        $prod4->precio_rebaja = 65;
         $prod4->id_categoria = 4;
         $prod4->save();
 
@@ -81,20 +81,20 @@ class ProductSeeder extends Seeder
         $prod7 = new \App\Producto();
         $prod7->nombre = "Figura Funko Pop! - Thanos ";
         $prod7->descripcion = "Figura Funko Pop! - Thanos 10 pulgadas / 25cm - Marvel: Vengadores";
-        $prod7->precio = 9.99;
+        $prod7->precio = 26.99;
         $prod7->stock = 40;
         $prod7->rebajado = true;
-        $prod7->precio_rebaja = 26.95;
+        $prod7->precio_rebaja = 9.99;
         $prod7->id_categoria = 6;
         $prod7->save();
 
         $prod8 = new \App\Producto();
         $prod8->nombre = "Robot aspirador iRobot Roomba";
         $prod8->descripcion = "Acaba con la suciedad - Experimenta una limpieza completa con el potente sistema de limpieza que levanta la suciedad, los restos y el pelo de mascotas, se escondan donde se escondan ";
-        $prod8->precio = 449;
+        $prod8->precio = 479;
         $prod8->stock = 40;
         $prod8->rebajado = true;
-        $prod8->precio_rebaja = 479;
+        $prod8->precio_rebaja = 449;
         $prod8->id_categoria = 5;
         $prod8->save();
 

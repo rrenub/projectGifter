@@ -56,9 +56,8 @@ class ShoppingCartController extends Controller
         }
 
         if(isset($_POST['prodID'])) {
-
             //Se comprueba si hay stock suficiente
-            if(!$this->isProductAvailable($_POST['prodID'])) {
+            if($this->isProductAvailable($_POST['prodID'])) {
                 return redirect('/tienda')->with('error', 'No hay suficientes unidades en stock');
             }
 
@@ -86,7 +85,7 @@ class ShoppingCartController extends Controller
 
     public function isProductAvailable($prodID) {
         $producto = Producto::where('id', $prodID)->first();
-        return ($producto->cantidad == 0);
+        return ($producto->stock == 0);
     }
 
     public static function getNumeroElementosCarro() {

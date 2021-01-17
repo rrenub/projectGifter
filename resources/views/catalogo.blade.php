@@ -22,6 +22,7 @@
     <section class="flex-grow grid grid-cols-4 gap-4 m-4">
         <!-- CONTENIDO -->
         <aside>
+
             <form method="get" action="filtrar" class="px-6 py-4 mb-2 mt-4 mb-8">
 
                 <!--  CATEGORÍAS -->

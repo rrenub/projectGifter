@@ -25,12 +25,26 @@ if(isset($sesionAbierta)){ ?>
                             </div>
                         </div>
                     </div>
-                    <div class="hidden md:block">
-                        <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-                            <p class="whitespace-nowrap text-base font-medium text-white px-3 py-2 duration-200 ">
+                    <div class="flex items-center">
+                        <p class="whitespace-nowrap text-base font-medium text-white px-4 py-2 duration-200">
                                 {{session('name')}}
                             </p>
-                            <a href="logOut" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-yellow-600 duration-200 hover:bg-yellow-800">
+                        <div class="flex flex-row cursor-pointer truncate p-2 rounded" onclick="openNav()">
+                            <div></div>
+                            <div class="flex flex-row-reverse ml-2 w-full">
+                                <div slot="icon" class="relative">
+                                    <div class="absolute text-xs rounded-full -mt-1 -mr-2 px-2 font-bold top-0 right-0 bg-red-700 text-white">3</div>
+                                    <div class="bg-yellow-600 px-4 pb-2 pt-0.5 rounded-lg">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart w-6 h-6 mt-2">
+                                            <circle cx="9" cy="21" r="1"></circle>
+                                            <circle cx="20" cy="21" r="1"></circle>
+                                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="logOut" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-red-600 duration-200 hover:bg-red-800">
                                 Cerrar sesión
                             </a>
                         </div>
@@ -49,6 +63,7 @@ if(isset($sesionAbierta)){ ?>
             </div>
         </nav>
     </div>
+<x-shopping-cart></x-shopping-cart>
 </div>
 <?php }else{ ?>
 <div>
@@ -101,3 +116,15 @@ if(isset($sesionAbierta)){ ?>
     </div>
 </div>
 <?php } ?>
+
+<script>
+    /* Set the width of the side navigation to 250px */
+    function openNav() {
+        document.getElementById("cart-sidebar").style.width = "350px";
+    }
+
+    /* Set the width of the side navigation to 0 */
+    function closeNav() {
+        document.getElementById("cart-sidebar").style.width = "0";
+    }
+</script>

@@ -26,6 +26,9 @@ Route::get('/register', function () {
 Route::get('/detalleProducto', function () {
     return view('detalleProducto');
 });
+Route::get('/editarProducto', function () {
+    return view('editarProducto');
+});
 
 //  - FUNCIONES -
 

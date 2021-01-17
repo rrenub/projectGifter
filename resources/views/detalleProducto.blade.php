@@ -71,7 +71,7 @@
             </h1>
             <div class="text-l tracking-tight sm:text-l md:text-l p-6 w-3/4 px-4">
                 <span class="block text-gray-600 xl:inline">{{$descripcion}}</span>
-                <form action="añadirProductoCarrito" method="post" class="mt-6">
+                <form action="/tienda/añadirProductoCarrito" method="post" class="mt-6">
                     <?= csrf_field() ?>
                     <input type="hidden" name="prodID" value="{{ $idProducto }}">
                     <button class="flex py-2 px-4 gap-2 items-center bg-yellow-500 text-base text-gray-800 font-semibold rounded">

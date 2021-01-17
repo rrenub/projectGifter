@@ -12,8 +12,8 @@
             </div>
             <div class="flex items-center gap-4 justify-between">
                 <div>
-                    <h1 class="text-red-500 font-bold text-3xl mr-2 inline">€{{ $price }}</h1>
-                    <h1 class="text-white line-through font-bold text-base inline">€{{ $sale }}</h1>
+                    <h1 class="text-red-500 font-bold text-3xl mr-2 inline">€{{ $sale }}</h1>
+                    <h1 class="text-white line-through font-bold text-base inline">€{{ $price }}</h1>
                 </div>
                 <div>
                     <form action="/tienda/añadirProductoCarrito" method="post">

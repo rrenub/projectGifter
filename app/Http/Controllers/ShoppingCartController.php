@@ -21,7 +21,16 @@ class ShoppingCartController extends Controller
                         DB::raw('(SELECT img FROM productos_img WHERE id_producto = productos.id LIMIT 1) AS img'))
                     ->where('productos.id', $prodID)
                     ->get();
-
+            if($producto[0]['rebajado']){
+                $itemCarrito = new ShoppingCartItem(
+                    $producto[0]['nombre'],
+                    $producto[0]['descripcion'],
+                    $producto[0]['precio_rebaja'],
+                    $producto[0]['img'],
+                    $cantidad,
+                    $producto[0]['id']
+                );
+            }else{
                 $itemCarrito = new ShoppingCartItem(
                     $producto[0]['nombre'],
                     $producto[0]['descripcion'],
@@ -30,7 +39,7 @@ class ShoppingCartController extends Controller
                     $cantidad,
                     $producto[0]['id']
                 );
-
+            }
                 $listaCarro[] = $itemCarrito;
 
                 $totalPago += $itemCarrito->getTotalPrice();

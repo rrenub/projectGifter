@@ -41,6 +41,9 @@
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Precio rebajado
                             </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Stock
+                            </th>
                             <th scope="col" class="relative px-6 py-3">
                                 <span class="sr-only">Editar</span>
                             </th>
@@ -69,15 +72,9 @@
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="text-sm text-gray-900 truncate w-80">{{$producto->descripcion}}</div>
                                 </td>
-                                @if($producto->precio_rebaja != null)
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        {{$producto->precio_rebaja}}€
-                                    </td>
-                                @else
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        {{$producto->precio}}€
-                                    </td>
-                                @endif
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    {{$producto->precio}}€
+                                </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     @if($producto->rebajado)
                                         <span class="px-2 ml-3 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
@@ -91,15 +88,18 @@
                                 </td>
                                 @if($producto->precio_rebaja)
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        {{$producto->precio}}€
+                                        {{$producto->precio_rebaja}}€
                                     </td>
                                 @else
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                         --
                                     </td>
                                 @endif
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    {{$producto->stock}}
+                                </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                    <a href="editarProducto?id={{$producto->id}}" class="text-indigo-600 hover:text-indigo-900">Editar</a>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                     <a href="#" class="text-indigo-600 hover:text-indigo-900">Borrar</a>

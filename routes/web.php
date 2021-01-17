@@ -26,9 +26,6 @@ Route::get('/register', function () {
 Route::get('/detalleProducto', function () {
     return view('detalleProducto');
 });
-Route::get('/editarProducto', function () {
-    return view('editarProducto');
-});
 
 //  - FUNCIONES -
 
@@ -36,13 +33,9 @@ Route::get('/logOut', 'UsuariosController@cerrarSesion');
 Route::get('/procesarLogin', 'UsuariosController@procesarLogin');
 Route::get('/procesarRegister', 'UsuariosController@procesarRegistro');
 
-
 Route::get('/tienda/filtrar', [\App\Http\Controllers\ShopController::class, 'filtrar']);
 Route::get('/ofertas', [\App\Http\Controllers\ShopController::class, 'ofertas']);
 Route::get('/tienda/buscar', [\App\Http\Controllers\ShopController::class, 'buscar']);
-
-
-Route::get('/procesarEditar', 'ProductController@procesarEditar');
 
 
 Route::post('/tienda/añadirProductoCarrito', [\App\Http\Controllers\ShoppingCartController::class, 'añadirProductoCarrito']);

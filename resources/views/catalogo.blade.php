@@ -60,45 +60,6 @@
             </button>
         </form>
     </aside>
-
-    <aside class="col-span-3">
-        @if((session('buscando') != null) || (session('filtrando') != null))
-            <a href="/tienda" class="mx-4 mt-8 align-middle whitespace-nowrap inline-flex items-center justify-center px-4 py-1 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-700 duration-200 hover:bg-gray-400">
-                Eliminar filtro
-            </a>
-        @else
-            <div class="mt-4 mx-4">
-                <x-search-bar></x-search-bar>
-            </div>
-        @endif
-        <div class="justify-start flex flex-wrap my-6">
-            @foreach($productos as $producto)
-                @if($producto->rebajado)
-                    <x-card-item-sale
-                        name="{{ $producto->nombre }}"
-                        description="{{ $producto->descripcion }}"
-                        price="{{ $producto->precio }}"
-                        idProd="{{ $producto->id }}"
-                        sale="{{ $producto->precio_rebaja }}"
-                        img="{{ $producto->img }}">
-                    </x-card-item-sale>
-                @else
-                    <x-card-item
-                        name="{{ $producto->nombre }}"
-                        description="{{ $producto->descripcion }}"
-                        price="{{ $producto->precio }}"
-                        idProd="{{ $producto->id }}"
-                        img="{{ $producto->img }}">
-                    </x-card-item>
-                @endif
-            @endforeach
-        </div>
-        <!--  PASAR PÁGINAS -->
-        <x-paginator
-            :items="$productos">
-        </x-paginator>
-    </aside>
-</section>
         <aside class="col-span-3">
             <!-- Se comprueba si se está filtrando o buscando productos -->
             @if(Session::has('buscando') || Session::has('filtrando'))

@@ -1,31 +1,12 @@
 <footer class="bg-gray-800 pt-10 sm:mt-10 pt-10">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <div class="max-w-6xl m-auto text-gray-800 flex flex-wrap justify-left">
-        <!-- Col-1 -->
         <div class="p-5 w-1/2 sm:w-4/12 md:w-3/12">
-            <!-- Col Title -->
             <div class="text-xs uppercase text-gray-400 font-medium mb-6">
-                Sobre Gifter
+                Proyecto
             </div>
-
-            <!-- Links -->
-            <a href="#" class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Ayuda y contacto
-            </a>
-            <a href="#" class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Sobre nosotros
-            </a>
-        </div>
-
-        <!-- Col-2 -->
-        <div class="p-5 w-1/2 sm:w-4/12 md:w-3/12">
-            <!-- Col Title -->
-            <div class="text-xs uppercase text-gray-400 font-medium mb-6">
-                Documentos legales
-            </div>
-
-            <!-- Links -->
-            <a href="#" class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
-                Política de privacidad
+            <a href="https://github.com/trompi99/projectGifter" class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
+                <i class="fa fa-github"></i> Github
             </a>
         </div>
 

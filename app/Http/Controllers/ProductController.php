@@ -92,39 +92,49 @@ class ProductController extends Controller
             $nombreUltimo = $producto->nombre;
 
             if(isset($_GET['img1'])){
-                $imgProducto = new ProductoImg();
-                $imgProducto->img = $_GET['img1'];
-                $imgProducto->id_producto = $ultimo;
-                $imgProducto->nombre = $nombreUltimo;
-                $imgProducto->save();
+                if($_GET['img1'] != "") {
+                    $imgProducto = new ProductoImg();
+                    $imgProducto->img = $_GET['img1'];
+                    $imgProducto->id_producto = $ultimo;
+                    $imgProducto->nombre = $nombreUltimo;
+                    $imgProducto->save();
+                }
             }
-            if($_GET['img2'] =! ""){
-                $imgProducto = new ProductoImg();
-                $imgProducto->img = $_GET['img2'];
-                $imgProducto->id_producto = $ultimo;
-                $imgProducto->nombre = $nombreUltimo;
-                $imgProducto->save();
+            if(isset($_GET['img2'])){
+                if($_GET['img2'] != "") {
+                    $imgProducto = new ProductoImg();
+                    $imgProducto->img = $_GET['img2'];
+                    $imgProducto->id_producto = $ultimo;
+                    $imgProducto->nombre = $nombreUltimo;
+                    $imgProducto->save();
+                }
             }
-            if($_GET['img3'] =! ""){
-                $imgProducto = new ProductoImg();
-                $imgProducto->img = $_GET['img3'];
-                $imgProducto->id_producto = $ultimo;
-                $imgProducto->nombre = $nombreUltimo;
-                $imgProducto->save();
+            if(isset($_GET['img3'])){
+                if($_GET['img3'] != "") {
+                    $imgProducto = new ProductoImg();
+                    $imgProducto->img = $_GET['img3'];
+                    $imgProducto->id_producto = $ultimo;
+                    $imgProducto->nombre = $nombreUltimo;
+                    $imgProducto->save();
+                }
             }
-            if($_GET['img4'] =! ""){
-                $imgProducto = new ProductoImg();
-                $imgProducto->img = $_GET['img4'];
-                $imgProducto->id_producto = $ultimo;
-                $imgProducto->nombre = $nombreUltimo;
-                $imgProducto->save();
+            if(isset($_GET['img4'])){
+                if($_GET['img4'] != ""){
+                    $imgProducto = new ProductoImg();
+                    $imgProducto->img = $_GET['img4'];
+                    $imgProducto->id_producto = $ultimo;
+                    $imgProducto->nombre = $nombreUltimo;
+                    $imgProducto->save();
+                }
             }
-            if($_GET['img5'] =! ""){
-                $imgProducto = new ProductoImg();
-                $imgProducto->img = $_GET['img5'];
-                $imgProducto->id_producto = $ultimo;
-                $imgProducto->nombre = $nombreUltimo;
-                $imgProducto->save();
+            if(isset($_GET['img5'])){
+                if($_GET['img5'] != "") {
+                    $imgProducto = new ProductoImg();
+                    $imgProducto->img = $_GET['img5'];
+                    $imgProducto->id_producto = $ultimo;
+                    $imgProducto->nombre = $nombreUltimo;
+                    $imgProducto->save();
+                }
             }
 
             return redirect('tienda');

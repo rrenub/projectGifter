@@ -19,104 +19,9 @@
 <main class="flex flex-col h-screen">
     <x-navigation-header></x-navigation-header>
     <x-notifications></x-notifications>
-<?php
-    $sessionAbierta = session('user');
-    $admin = "administrator";
-    if(isset($sessionAbierta)&&$sessionAbierta==$admin){ ?>
-    <div class="flex flex-col">
-        <div class="my-4 overflow-x-auto sm:-mx-6 lg:mx-6">
-            <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                <div class="shadow-md overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                    <table class="min-w-full divide-y divide-gray-200">
-                        <thead class="bg-gray-50">
-                        <tr>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Nombre
-                            </th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Descripcion
-                            </th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Precio
-                            </th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Rebaja
-                            </th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Precio rebajado
-                            </th>
-                            <th scope="col" class="relative px-6 py-3">
-                                <span class="sr-only">Editar</span>
-                            </th>
-                            <th scope="col" class="relative px-6 py-3">
-                                <a href="/tienda" class="mt-2 align-middle whitespace-nowrap inline-flex items-center justify-center px-2 py-2 border border-transparent rounded-md shadow-sm text-xs font-medium text-white bg-yellow-600 duration-200 hover:bg-yellow-400">
-                                    Añadir +
-                                </a>
-                            </th>
-                        </tr>
-                        </thead>
-                        <tbody class="bg-white divide-y divide-gray-200">
-                        @foreach($productos as $producto)
-                            <tr>
-                                <td class="pl-6 pr-0 py-4 whitespace-nowrap">
-                                    <div class="flex items-center">
-                                        <div class="flex-shrink-0 h-10 w-10">
-                                            <img class="h-10 w-10 rounded-full" src="https://lh3.googleusercontent.com/proxy/IBKJ2siwf432QP7Jg_sBebLGCKFbt-HNiVYV52jZ54-0pXuI-t7M24I519w_aZqiv1Y7JEzLKxIKlNi7cEPDtmhDeCARAolHRh8317bokjfIj999CKouyA_u" alt="">
-                                        </div>
-                                        <div class="ml-4">
-                                            <div class="text-sm font-medium text-gray-900 w-56 truncate">
-                                                {{$producto->nombre}}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="text-sm text-gray-900 truncate w-80">{{$producto->descripcion}}</div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                    {{$producto->precio}}€
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    @if($producto->rebajado)
-                                        <span class="px-2 ml-3 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                            {{$producto->rebajado}}
-                                        </span>
-                                    @else
-                                        <span class="px-2 ml-3 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-green-800">
-                                            {{$producto->rebajado}}
-                                        </span>
-                                    @endif
-                                </td>
-                                @if($producto->precio_rebaja)
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        {{$producto->precio_rebaja}}€
-                                    </td>
-                                @else
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        --
-                                    </td>
-                                @endif
-                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <a href="#" class="text-indigo-600 hover:text-indigo-900">Borrar</a>
-                                </td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-     <?php
-    }else{ ?>
 <section class="flex-grow grid grid-cols-4 gap-4 m-4">
     <!-- CONTENIDO -->
     <aside>
-
-<<<<<<< HEAD
             <form method="get" action="/tienda/filtrar" class="px-6 py-4 mb-2 mt-4 mb-8">
 
                 <!--  CATEGORÍAS -->
@@ -129,17 +34,6 @@
                                        label="{{ $categoria->nombre }}">
                     </x-filter-checkbox>
                 @endforeach
-=======
-        <form method="get" action="filtrar" class="px-6 py-4 mb-2 mt-4 mb-8">
-
-            <!--  CATEGORÍAS -->
-            <div class="uppercase tracking-wide text-c2 mb-4">Categorías</div>
-            @foreach ($categorias as $categoria)
-                <x-filter-checkbox value="{{ strtolower($categoria->nombre) }}"
-                                   label="{{ $categoria->nombre }}">
-                </x-filter-checkbox>
-        @endforeach
->>>>>>> master
 
 
         <!--  CATEGORÍAS -->
@@ -201,9 +95,6 @@
         </x-paginator>
     </aside>
 </section>
-   <?php } ?>
-
-<<<<<<< HEAD
         <aside class="col-span-3">
             <!-- Se comprueba si se está filtrando o buscando productos -->
             @if(Session::has('buscando') || Session::has('filtrando'))
@@ -249,8 +140,6 @@
                 @endif
         </aside>
     </section>
-=======
->>>>>>> master
     <x-footer></x-footer>
 </main>
 </body>

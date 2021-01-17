@@ -16,8 +16,12 @@ class ShopController extends Controller
                         DB::raw('(SELECT img FROM productos_img WHERE id_producto = productos.id LIMIT 1) AS img'))
                         ->paginate(9);
 
-        return view('catalogo')->with('productos', $productos)
-                                    ->with('categorias', $categorias);
+        if(session('user') == 'administrator') {
+            return view('tiendaAdmin')->with('productos', $productos);
+        } else {
+            return view('catalogo')->with('productos', $productos)
+                ->with('categorias', $categorias);
+        }
     }
 
     public function mostrarInicio() {

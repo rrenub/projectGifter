@@ -26,6 +26,9 @@ Route::get('/register', function () {
 Route::get('/detalleProducto', function () {
     return view('detalleProducto');
 });
+Route::get('/nuevoProducto', function () {
+    return view('nuevoProducto');
+});
 Route::get('/editarProducto', function () {
     return view('editarProducto');
 });
@@ -40,7 +43,9 @@ Route::get('/tienda/filtrar', [\App\Http\Controllers\ShopController::class, 'fil
 Route::get('/ofertas', [\App\Http\Controllers\ShopController::class, 'ofertas']);
 Route::get('/tienda/buscar', [\App\Http\Controllers\ShopController::class, 'buscar']);
 
+Route::get('/añadirProducto', 'ProductController@añadirProducto');
 Route::get('/procesarEditar', 'ProductController@procesarEditar');
+Route::get('/borrarProducto', 'ProductController@borrarProducto');
 
 Route::post('/tienda/añadirProductoCarrito', [\App\Http\Controllers\ShoppingCartController::class, 'añadirProductoCarrito']);
 Route::get('/tienda/vaciarCarrito', [\App\Http\Controllers\ShoppingCartController::class, 'vaciarCarrito']);

@@ -4,6 +4,7 @@
     $nombre=$usuario[0]['nombre'];
     $apellidos=$usuario[0]['apellidos'];
     ?>
+
     <div class=" shadow-md px-4 py-3 rounded-lg w-full">
         <div class="flex items-center">
             <img class="h-16 w-16" src="/img/profile.png"/>
@@ -30,4 +31,10 @@
             </svg>
             <span class="inline-block"> {{$fecha}} </span>
         </div>
+        @if(\App\Order::join('ordersdetail', 'ordersdetail.id_order','=', 'orders.id')
+                        ->where('orders.id_client', $idUsuario)
+                        ->where('ordersdetail.id_product', $id)
+                        ->exists())
+            <span class="text-sm mt-2 text-red-500">Compra verificada</span>
+        @endif
     </div>

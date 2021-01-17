@@ -191,7 +191,8 @@
                             estrellas="{{$review->estrellas}}"
                             valoracion="{{$review->valoracion}}"
                             idUsuario="{{$review->idUser}}"
-                            fecha="{{$review->created_at}}">
+                            fecha="{{$review->created_at}}"
+                            idProd="{{ $review->idProducto }}">
                         </x-comment>
                     @endforeach
                 @endif

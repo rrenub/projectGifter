@@ -33,7 +33,10 @@ if(isset($sesionAbierta)){ ?>
                             <div></div>
                             <div class="flex flex-row-reverse ml-2 w-full">
                                 <div slot="icon" class="relative">
-                                    <div class="absolute text-xs rounded-full -mt-1 -mr-2 px-2 font-bold top-0 right-0 bg-red-700 text-white">3</div>
+                                    <?php
+                                        $totalCarro = \App\Http\Controllers\ShoppingCartController::getNumeroElementosCarro();
+                                    ?>
+                                    <div class="absolute text-xs rounded-full -mt-1 -mr-2 px-2 font-bold top-0 right-0 bg-red-700 text-white">{{ $totalCarro }}</div>
                                     <div class="bg-yellow-600 px-4 pb-2 pt-0.5 rounded-lg">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart w-6 h-6 mt-2">
                                             <circle cx="9" cy="21" r="1"></circle>

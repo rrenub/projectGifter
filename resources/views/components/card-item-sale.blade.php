@@ -12,13 +12,13 @@
             </div>
             <div class="flex items-center gap-4 justify-between">
                 <div>
-                    <h1 class="text-red-500 font-bold text-3xl mr-2 inline">€{{ $sale }}</h1>
-                    <h1 class="text-white line-through font-bold text-base inline">€{{ $price }}</h1>
+                    <h1 class="text-red-500 font-bold text-3xl mr-2 inline">€{{ $price }}</h1>
+                    <h1 class="text-white line-through font-bold text-base inline">€{{ $sale }}</h1>
                 </div>
                 <div>
-                    <form action="añadirProductoAlCarro" method="post">
+                    <form action="añadirProductoCarrito" method="post">
                         <?= csrf_field() ?>
-                        <input type="hidden" name="idProducto" value="{{ $idProd }}">
+                        <input type="hidden" name="prodID" value="{{ $idProd }}">
                             <button class="px-2 py-1 bg-yellow-500 text-sm text-gray-800 font-semibold rounded">
                                 <img src="/img/shopping_cart-24px.svg">
                             </button>

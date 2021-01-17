@@ -35,3 +35,6 @@ Route::get('/procesarRegister', 'UsuariosController@procesarRegistro');
 
 Route::get('/filtrar', [\App\Http\Controllers\ShopController::class, 'filtrar']);
 Route::get('/ofertas', [\App\Http\Controllers\ShopController::class, 'ofertas']);
+
+Route::get('/procesarReview', 'ReviewsController@procesarReview');
+

@@ -79,10 +79,13 @@
         <!-- Articulos relacionados -->
 
         <?php
-        $productosRelacionados = \App\Producto::where('id_categoria', $categoria)
+        $productosRelacionados = \App\Producto::select('productos.*',
+            DB::raw('(SELECT img FROM productos_img WHERE id_producto = productos.id LIMIT 1) AS img'))
+            ->where('id_categoria', $categoria)
             ->take(4)
             ->whereNotIn('id', [$idProducto])
             ->get();
+
         $cantidad = count($productosRelacionados);
         ?>
 

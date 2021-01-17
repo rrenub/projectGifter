@@ -6,7 +6,7 @@
     ?>
     <div class=" shadow-md px-4 py-3 rounded-lg w-full">
         <div class="flex items-center">
-            <img class="h-16 w-16" src="https://lh3.googleusercontent.com/proxy/plfa3Sn3t86C90C9AUtiwC7_AkqdCk1JpxDI0WeAKK9G1ffDRguMFAJ4gd76q0jfuT4kj47xm4jlR2UXOJlNnhzczCklWknEBPdi8IOgaIyFG5ZZvj07"/>
+            <img class="h-16 w-16" src="/img/profile.png"/>
             <div class="ml-2">
                 <div class="text-sm">
                     <span class="font-semibold text-lg">{{$nombre." ".$apellidos}}</span>
@@ -30,9 +30,4 @@
             </div>
         </div>
         <p class="text-gray-800 text-md mt-2 leading-normal md:leading-relaxed">{{$valoracion}}</p>
-        <div class="text-gray-500 text-xs flex items-center mt-3">
-            <img class="mr-0.5" src="https://static-exp1.licdn.com/sc/h/d310t2g24pvdy4pt1jkedo4yb"/>
-            <img class="mr-0.5" src="https://static-exp1.licdn.com/sc/h/5thsbmikm6a8uov24ygwd914f"/>
-            <img class="mr-0.5" src="https://static-exp1.licdn.com/sc/h/7fx9nkd7mx8avdpqm5hqcbi97"/>
-        </div>
     </div>

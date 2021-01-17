@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Producto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class ShopController extends Controller
 {
@@ -30,11 +31,9 @@ class ShopController extends Controller
     }
 
     public function filtrar() {
-        $categorias = \App\Categoria::all();
-
         $condicion = array();
         if(!(isset($_GET['oferta']) || isset($_GET['categoria']))) {
-            return back()->with('error', 'No se ha seleccionado ningún filtro. Mostrando todos los artículos');
+            return back()->with('error', 'No se ha seleccionado ningún filtro. Mostrando todos los artículos')->with('filtrando', 1);
         }
 
         if(isset($_GET['oferta'])) {
@@ -56,11 +55,25 @@ class ShopController extends Controller
                 ->paginate(9);
         }
 
-        return view('catalogo')->with('productos', $productos)
-                                    ->with('categorias', $categorias);
+        Session::flash('filtrando', 1);
+        return view('catalogo')->with('productos', $productos);
     }
 
     public function ofertas() {
         return count(Producto::where('rebajado', 1)->get());
+    }
+
+    public function buscar() {
+        $productosBuscados = Producto::select('productos.*',
+            DB::raw('(SELECT img FROM productos_img WHERE id_producto = productos.id LIMIT 1) AS img'))
+                                        ->where('nombre', 'LIKE', '%'. $_GET['buscar'] .'%')
+                                        ->paginate(9);
+
+        if(count($productosBuscados) == 0) {
+            return redirect('/tienda')->with('error', 'No existe ningún artículo que coincida con la busqueda');
+        } else {
+            Session::flash('buscando', 1);
+            return view('catalogo')->with('productos', $productosBuscados);
+        }
     }
 }

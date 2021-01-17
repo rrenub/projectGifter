@@ -23,10 +23,13 @@
         <!-- CONTENIDO -->
         <aside>
 
-            <form method="get" action="filtrar" class="px-6 py-4 mb-2 mt-4 mb-8">
+            <form method="get" action="/tienda/filtrar" class="px-6 py-4 mb-2 mt-4 mb-8">
 
                 <!--  CATEGORÍAS -->
                 <div class="uppercase tracking-wide text-c2 mb-4">Categorías</div>
+                <?php
+                    $categorias = \App\Categoria::all();
+                ?>
                 @foreach ($categorias as $categoria)
                     <x-filter-checkbox value="{{ strtolower($categoria->nombre) }}"
                                        label="{{ $categoria->nombre }}">
@@ -60,10 +63,19 @@
         </aside>
 
         <aside class="col-span-3">
-            @if(substr($_SERVER['REQUEST_URI'],0,8) == '/filtrar')
+            <!-- Se comprueba si se está filtrando o buscando productos -->
+            @if(Session::has('buscando') || Session::has('filtrando'))
                 <a href="/tienda" class="mx-4 mt-8 align-middle whitespace-nowrap inline-flex items-center justify-center px-4 py-1 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-700 duration-200 hover:bg-gray-400">
                     Eliminar filtro
                 </a>
+                <?php
+                    \Illuminate\Support\Facades\Session::forget('buscando');
+                    \Illuminate\Support\Facades\Session::forget('filtrando');
+                ?>
+            @else
+                <div class="mx-2 flex justify-start items-center">
+                    <x-search-bar></x-search-bar>
+                </div>
             @endif
             <div class="justify-start flex flex-wrap my-6">
                @foreach($productos as $producto)
@@ -88,9 +100,11 @@
                 @endforeach
             </div>
             <!--  PASAR PÁGINAS -->
-            <x-paginator
-                :items="$productos">
-            </x-paginator>
+                @if($productos != null)
+                    <x-paginator
+                        :items="$productos">
+                    </x-paginator>
+                @endif
         </aside>
     </section>
     <x-footer></x-footer>

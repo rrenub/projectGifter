@@ -10,11 +10,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
 
     <!-- Libreria js para escribir solo -->
-    <script src="https://unpkg.com/typer-dot-js@0.1.0/typer.js"></script>
+    <script async src="https://unpkg.com/typer-dot-js@0.1.0/typer.js"></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <!-- JQuery -->
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
     <x-navigation-header></x-navigation-header>
@@ -25,16 +24,15 @@
                         <h1 class="text-4xl tracking-tight font-extrabold sm:text-5xl md:text-6xl">
                             <span class="block text-gray-900 xl:inline">Sorprende a</span>
                             <div class="block text-yellow-500 xl:inline">
-                                <span class="typer text" id="main" data-words="tu familia,tu novia,tu perro 🐶,tus amigos,tu hija" data-delay="100" data-deleteDelay="2000"></span>
+                                <span class="typer" id="main" data-words="tu familia,tu novia,tu perro 🐶,tus amigos,tu hija" data-delay="100" data-deleteDelay="2000"></span>
                                 <span class="cursor" data-owner="main"></span>
                             </div>
                         </h1>
                         <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-auto sm:mx-auto lg:mx-0">
                             Mediante un sistema de eCommerce, puedes realizar compras online desde nuestra tienda. ¿No terminas de decidirte? Filtra y busca según las diferentes categorías y precios de forma fácil y cómoda
                         </p>
-                        <div class="mt-6 flex flex-shrink-0 justify-start items-center mb-8">
+                        <div class="mt-6 flex flex-shrink-0 justify-start items-baseline mb-8">
                             <x-search-bar></x-search-bar>
-                            <img src="img/search-24px.svg" class="ml-4 w-8 h-auto inline"/>
                         </div>
                     </div>
                 </div>
@@ -45,7 +43,7 @@
             <div class="lg:text-center mt-8">
                 <h2 class="text-lg text-yellow-500 font-semibold tracking-wide uppercase">Últimas ofertas</h2>
                 <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                    Tenemos <span id="articulos-oferta"></span> productos en oferta
+                    Aprovecha las últimas ofertas
                 </p>
                 <div class="justify-center px-8 py-4 flex flex-wrap">
                     @foreach($productos as $producto)
@@ -63,17 +61,6 @@
                     Visita la tienda
                 </a>
             </div>
-
-            <script>
-                function getNumOfertas() {
-                    axios.get('/ofertas')
-                        .then(res => {
-                            document.getElementById('articulos-oferta').innerHTML = res.data;
-                        })
-                    setTimeout(get_num_users, 10000);
-                }
-                getNumOfertas();
-            </script>
 
             <x-footer></x-footer>
         </main>

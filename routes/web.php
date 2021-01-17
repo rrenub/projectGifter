@@ -33,11 +33,14 @@ Route::get('/logOut', 'UsuariosController@cerrarSesion');
 Route::get('/procesarLogin', 'UsuariosController@procesarLogin');
 Route::get('/procesarRegister', 'UsuariosController@procesarRegistro');
 
-Route::get('/filtrar', [\App\Http\Controllers\ShopController::class, 'filtrar']);
+Route::get('/tienda/filtrar', [\App\Http\Controllers\ShopController::class, 'filtrar']);
 Route::get('/ofertas', [\App\Http\Controllers\ShopController::class, 'ofertas']);
-Route::post('/añadirProductoCarrito', [\App\Http\Controllers\ShoppingCartController::class, 'añadirProductoCarrito']);
+Route::get('/tienda/buscar', [\App\Http\Controllers\ShopController::class, 'buscar']);
+
+
+Route::post('/tienda/añadirProductoCarrito', [\App\Http\Controllers\ShoppingCartController::class, 'añadirProductoCarrito']);
 Route::get('/tienda/vaciarCarrito', [\App\Http\Controllers\ShoppingCartController::class, 'vaciarCarrito']);
-Route::get('/eliminarProductoCarrito', [\App\Http\Controllers\ShoppingCartController::class, 'eliminarProductoCarrito']);
+Route::get('/tienda/eliminarProductoCarrito', [\App\Http\Controllers\ShoppingCartController::class, 'eliminarProductoCarrito']);
 
 
 Route::get('/procesarReview', 'ReviewsController@procesarReview');

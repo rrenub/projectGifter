@@ -9,12 +9,13 @@ use Illuminate\Support\Facades\Session;
 
 class ShopController extends Controller
 {
+
     public function mostrarTienda() {
         $categorias = \App\Categoria::all();
 
         $productos = Producto::select('productos.*',
                         DB::raw('(SELECT img FROM productos_img WHERE id_producto = productos.id LIMIT 1) AS img'))
-                        ->paginate(9);
+                        ->paginate(6);
 
         if(session('user') == 'administrator') {
             return view('tiendaAdmin')->with('productos', $productos);
@@ -51,12 +52,12 @@ class ShopController extends Controller
                 ->join('categorias', 'categorias.id', '=', 'productos.id_categoria')
                 ->where($condicion)
                 ->select('productos.*', DB::raw('(SELECT img FROM productos_img WHERE id_producto = productos.id LIMIT 1) AS img'))
-                ->paginate(9);
+                ->paginate(6);
         } else {
             $productos = Producto::select('productos.*',
                 DB::raw('(SELECT img FROM productos_img WHERE id_producto = productos.id LIMIT 1) AS img'))
                 ->where($condicion)
-                ->paginate(9);
+                ->paginate(6);
         }
 
         Session::flash('filtrando', 1);
@@ -71,7 +72,7 @@ class ShopController extends Controller
         $productosBuscados = Producto::select('productos.*',
             DB::raw('(SELECT img FROM productos_img WHERE id_producto = productos.id LIMIT 1) AS img'))
                                         ->where('nombre', 'LIKE', '%'. $_GET['buscar'] .'%')
-                                        ->paginate(9);
+                                        ->paginate(6);
 
         if(count($productosBuscados) == 0) {
             return redirect('/tienda')->with('error', 'No existe ningún artículo que coincida con la busqueda');

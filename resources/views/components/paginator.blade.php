@@ -33,7 +33,7 @@
                     </a>
                 @endif
                 <?php
-                    $nPaginas = ceil($items->total()/3);
+                    $nPaginas = ceil($items->total()/3)-1;
                 ?>
                     @for($i=1;$i<=$nPaginas;$i++)
                         @if($i==$items->currentPage())

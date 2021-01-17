@@ -15,14 +15,14 @@ class UserSeeder extends Seeder
         $usuario->nombre = "Administrador";
         $usuario->apellidos = "Administrador";
         $usuario->email = "admin@admin.com";
-        $usuario->constraseña = "admin";
+        $usuario->contraseña = "admin";
         $usuario->save();
 
         $usuario = new \App\Usuario();
         $usuario->nombre = "Usuario";
         $usuario->apellidos = "Prueba";
         $usuario->email = "usuarioPrueba@ulpgc.es";
-        $usuario->constraseña = "userPrueba";
+        $usuario->contraseña = "userPrueba";
         $usuario->save();
     }
 }

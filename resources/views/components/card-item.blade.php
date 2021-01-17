@@ -1,5 +1,5 @@
 <div>
-    <div class="max-w-xs bg-white shadow-lg rounded-lg overflow-hidden my-2 mx-2">
+    <div class="w-80 bg-white shadow-lg rounded-lg overflow-hidden my-2 mx-2">
         <a href='/detalleProducto?id={{ $idProd }}'>
             <img class="h-40 w-auto object-cover my-4 mx-auto rounded-lg" src="{{ $img }}" alt="NIKE AIR">
         </a>

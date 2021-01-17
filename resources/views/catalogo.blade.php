@@ -71,11 +71,11 @@
                     \Illuminate\Support\Facades\Session::forget('filtrando');
                 ?>
             @else
-                <div class="mx-2 flex justify-start items-center">
+                <div class="mx-6 flex justify-start items-center">
                     <x-search-bar></x-search-bar>
                 </div>
             @endif
-            <div class="justify-start flex flex-wrap my-6">
+            <div class="justify-start flex flex-wrap my-6 ml-6">
                @foreach($productos as $producto)
                    @if($producto->rebajado)
                         <x-card-item-sale

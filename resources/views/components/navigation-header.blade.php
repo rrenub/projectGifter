@@ -20,7 +20,7 @@ if(isset($sesionAbierta)){ ?>
 
                                 <a href="/tienda" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Tienda</a>
 
-                                <a href="#" class="text-gray-300 hover:bg-gray-700 duration-200 hover:text-white px-3 py-2 rounded-md text-base font-medium">Regalo personalizado</a>
+                                <a href="#" class="text-gray-300 hover:bg-gray-700 duration-200 hover:text-white px-3 py-2 rounded-md text-base font-medium">Ayuda</a>
 
                             </div>
                         </div>
@@ -90,7 +90,7 @@ if(isset($sesionAbierta)){ ?>
 
                                 <a href="/tienda" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Tienda</a>
 
-                                <a href="#" class="text-gray-300 hover:bg-gray-700 duration-200 hover:text-white px-3 py-2 rounded-md text-base font-medium">Regalo personalizado</a>
+                                <a href="#" class="text-gray-300 hover:bg-gray-700 duration-200 hover:text-white px-3 py-2 rounded-md text-base font-medium">Ayuda</a>
 
                             </div>
                         </div>

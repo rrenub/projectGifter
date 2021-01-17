@@ -59,7 +59,7 @@
                         </x-card-item-sale>
                     @endforeach
                 </div>
-                <a href="/tienda" class="mt-6 align-middle whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-yellow-600 duration-200 hover:bg-yellow-400">
+                <a href="/tienda" class="mt-2 align-middle whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-lg font-medium text-white bg-yellow-600 duration-200 hover:bg-yellow-400">
                     Visita la tienda
                 </a>
             </div>

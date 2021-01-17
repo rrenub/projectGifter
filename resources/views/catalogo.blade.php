@@ -24,15 +24,14 @@
         <aside>
             <form method="get" action="filtrar" class="px-6 py-4 mb-2 mt-4 mb-8">
 
-
                 <!--  CATEGORÍAS -->
                 <div class="uppercase tracking-wide text-c2 mb-4">Categorías</div>
-                <?php
-                    $categorias = \App\Categoria::all();
-                    foreach ($categorias as $categoria):
-                ?>
-                    <x-filter-checkbox value="{{ strtolower($categoria->nombre) }}" label="{{ $categoria->nombre }}"></x-filter-checkbox>
-                <?php endforeach; ?>
+                @foreach ($categorias as $categoria)
+                    <x-filter-checkbox value="{{ strtolower($categoria->nombre) }}"
+                                       label="{{ $categoria->nombre }}">
+                    </x-filter-checkbox>
+                @endforeach
+
 
                 <!--  CATEGORÍAS -->
                 <div class="uppercase tracking-wide text-c2 mb-4 mt-6">En venta</div>
@@ -60,6 +59,11 @@
         </aside>
 
         <aside class="col-span-3">
+            @if(substr($_SERVER['REQUEST_URI'],0,8) == '/filtrar')
+                <a href="/tienda" class="mx-4 mt-8 align-middle whitespace-nowrap inline-flex items-center justify-center px-4 py-1 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-700 duration-200 hover:bg-gray-400">
+                    Eliminar filtro
+                </a>
+            @endif
             <div class="justify-start flex flex-wrap my-6">
                @foreach($productos as $producto)
                    @if($producto->rebajado)

@@ -1,13 +1,13 @@
 <script src="{{ asset('js/app.js') }}"></script>
 @if(session('exito') != null)
-    <div id="notifications" class="bg-green-700 transition-all">
+    <div id="notifications" class="bg-green-700">
         <div class="max-w mx-auto py-3 px-3 sm:px-6 lg:px-8 flex justify-between items-center">
             <p class="font-medium text-white truncate">
                 {{ session('exito') }}
             </p>
             <div class="order-2 flex-shrink-0 sm:order-3 sm:ml-3">
                 <button type="button" class="-mr-1 flex p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2"
-                        onclick="document.getElementById('notifications').style.display = 'none';"
+                        onclick="document.getElementById('notifications').style.opacity = '0.0';"
                 >
                     <span class="sr-only">Dismiss</span>
                     <!-- Heroicon name: x -->

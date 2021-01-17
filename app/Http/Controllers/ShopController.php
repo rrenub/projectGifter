@@ -9,11 +9,14 @@ use Illuminate\Support\Facades\DB;
 class ShopController extends Controller
 {
     public function mostrarTienda() {
+        $categorias = \App\Categoria::all();
+
         $productos = Producto::select('productos.*',
                         DB::raw('(SELECT img FROM productos_img WHERE id_producto = productos.id LIMIT 1) AS img'))
                         ->paginate(9);
 
-        return view('catalogo')->with('productos', $productos);
+        return view('catalogo')->with('productos', $productos)
+                                    ->with('categorias', $categorias);
     }
 
     public function mostrarInicio() {
@@ -27,9 +30,11 @@ class ShopController extends Controller
     }
 
     public function filtrar() {
+        $categorias = \App\Categoria::all();
+
         $condicion = array();
         if(!(isset($_GET['oferta']) || isset($_GET['categoria']))) {
-            redirect('/tienda')->with('error', 'No se ha seleccionado ningún filtro. Mostrando todos los artículos');
+            return back()->with('error', 'No se ha seleccionado ningún filtro. Mostrando todos los artículos');
         }
 
         if(isset($_GET['oferta'])) {
@@ -52,7 +57,7 @@ class ShopController extends Controller
         }
 
         return view('catalogo')->with('productos', $productos)
-                                    ->with('filtro', $condicion);
+                                    ->with('categorias', $categorias);
     }
 
     public function ofertas() {

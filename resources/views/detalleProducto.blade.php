@@ -121,7 +121,7 @@
                     </select>
                 </div>
                 <div>
-                    <textarea rows="5" name="descripcion" maxlength="500"  class="w-full h-32 rounded border-2 border-gray-600" placeholder="Describa su opinión del producto (500 caracteres)"></textarea>
+                    <textarea rows="5" name="descripcion" maxlength="500"  class="w-full h-32 rounded-lg border-2 border-gray-600 py-2 px-4" placeholder="Describa su opinión del producto (500 caracteres)"></textarea>
                 </div>
                 <button type="submit" class="block w-2/12 max-w-xs ml-auto bg-gray-200 text-black rounded-lg px-3 py-3 font-semibold duration-200 hover:bg-yellow-500">Enviar</button>
             </form>

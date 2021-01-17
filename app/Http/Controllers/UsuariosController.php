@@ -48,7 +48,7 @@ class UsuariosController extends Controller
             $email = $_GET ['email'];
             $password = $_GET ['pass'];
 
-            if(!($this->comprobarUser('email'))) {
+            if(!($this->comprobarUser($email))) {
                 return redirect('/login')->with('error', 'El email o la contraseña es erróneo. Compruebe los campos introducidos');
             }
 

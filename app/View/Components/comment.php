@@ -6,14 +6,22 @@ use Illuminate\View\Component;
 
 class comment extends Component
 {
+    public $estrellas;
+    public $valoracion;
+    public $idUsuario;
+    public $fecha;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($estrellas, $valoracion, $idUsuario,$fecha)
     {
-        //
+        $this->estrellas = $estrellas;
+        $this->valoracion = $valoracion;
+        $this->idUsuario = $idUsuario;
+        $this->fecha = $fecha;
     }
 
     /**

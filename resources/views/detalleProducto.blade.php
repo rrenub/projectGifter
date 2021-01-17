@@ -14,8 +14,10 @@
 <body>
 
 <?php
-    $idProdudcto = $_GET['id'];
-    $detalleProducto = \App\Producto::where('id', $idProdudcto)->get();
+    $sessionAbierta = session('user');
+
+    $idProducto = $_GET['id'];
+    $detalleProducto = \App\Producto::where('id', $idProducto)->get();
 
     $nombre = $detalleProducto[0]['nombre'];
     $descripcion = $detalleProducto[0]['descripcion'];
@@ -23,8 +25,9 @@
     $stock = $detalleProducto[0]['stock'];
     $rebaja = $detalleProducto[0]['rebajado'];
     $precioRebajado = $detalleProducto[0]['precio_rebaja'];
+    $categoria = $detalleProducto[0]['id_categoria'];
 
-    $imagenes = \App\ProductoImg::where('id_producto', $idProdudcto)->get();
+    $imagenes = \App\ProductoImg::where('id_producto', $idProducto)->get();
     ?>
 
 <main class="flex flex-col h-screen">
@@ -75,12 +78,43 @@
 
         <!-- Articulos relacionados -->
 
+        <?php
+        $productosRelacionados = \App\Producto::where('id_categoria', $categoria)
+            ->take(4)
+            ->whereNotIn('id', [$idProducto])
+            ->get();
+        $cantidad = count($productosRelacionados);
+        ?>
+
         <div class="col-span-3 m-8">
             <h1 class="text-2xl tracking-tight font-bold py-2 px-4 text-center border-b-4 border-gray-700">
                 <span class="block text-black xl:inline">Artículos relacionados</span>
             </h1>
-            <div class="justify-center flex flex-wrap">
-
+            <div class="justify-left flex flex-wrap">
+                @if($cantidad==0)
+                    <h1>Lo sentimos, no hay artículos relacionados</h1>
+                @else
+                @foreach($productosRelacionados as $producto)
+                    @if($producto->rebajado)
+                        <x-card-item-sale
+                            name="{{ $producto->nombre }}"
+                            description="{{ $producto->descripcion }}"
+                            price="{{ $producto->precio }}"
+                            idProd="{{ $producto->id }}"
+                            sale="{{ $producto->precio_rebaja }}"
+                            img="{{ $producto->img }}">
+                        </x-card-item-sale>
+                    @else
+                        <x-card-item
+                            name="{{ $producto->nombre }}"
+                            description="{{ $producto->descripcion }}"
+                            price="{{ $producto->precio }}"
+                            idProd="{{ $producto->id }}"
+                            img="{{ $producto->img }}">
+                        </x-card-item>
+                    @endif
+                @endforeach
+                    @endif
             </div>
         </div>
 
@@ -91,45 +125,67 @@
             </h1>
         </div>
 
-        <div class="col-span-1 rounded ml-12 mr-4 my-4 mt-8">
-            <div class="grid grid-cols-2">
-                <div class="col-span-1 ml-8">
-                    <svg class="estrella mx-1 fill-current text-yellow-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
-                </div>
-                <div  class="col-span-1">
-                    <div class="mt-4">
-                        <div class="flex justify-left font-bold text-md">1 Estrella:<p class="font-light ml-2">Muy malo</p></div>
-                        <div class="flex justify-left font-bold text-md">2 Estrellas:<p class="font-light ml-2">Malo</p></div>
-                        <div class="flex justify-left font-bold text-md">3 Estrellas:<p class="font-light ml-2">Normal</p></div>
-                        <div class="flex justify-left font-bold text-md">4 Estrellas:<p class="font-light ml-2">Bueno</p></div>
-                        <div class="flex justify-left font-bold text-md">5 Estrellas:<p class="font-light ml-2">Muy bueno</p></div>
+        @if(isset($sessionAbierta))
+            <div class="col-span-1 rounded ml-12 mr-4 my-4 mt-8">
+                <div class="grid grid-cols-2">
+                    <div class="col-span-1 ml-8">
+                        <svg class="estrella mx-1 fill-current text-yellow-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                    </div>
+                    <div  class="col-span-1">
+                        <div class="mt-4">
+                            <div class="flex justify-left font-bold text-md">1 Estrella:<p class="font-light ml-2">Muy malo</p></div>
+                            <div class="flex justify-left font-bold text-md">2 Estrellas:<p class="font-light ml-2">Malo</p></div>
+                            <div class="flex justify-left font-bold text-md">3 Estrellas:<p class="font-light ml-2">Normal</p></div>
+                            <div class="flex justify-left font-bold text-md">4 Estrellas:<p class="font-light ml-2">Bueno</p></div>
+                            <div class="flex justify-left font-bold text-md">5 Estrellas:<p class="font-light ml-2">Muy bueno</p></div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="col-span-2 ml-4 mr-16 my-4">
-            <form name="formValoracion" method="get" action="#">
-                <div class="mb-2">
-                    <p class="float-left">Número de estrellas:</p>
-                    <select class="ml-8 w-100 rounded border-2 border-gray-600" name="estrellas">
-                        <option value="1">1 estrella</option>
-                        <option value="2">2 estrellas</option>
-                        <option value="3">3 estrellas</option>
-                        <option value="4">4 estrellas</option>
-                        <option value="5">5 estrellas</option>
-                    </select>
-                </div>
-                <div>
-                    <textarea rows="5" name="descripcion" maxlength="500"  class="w-full h-32 rounded-lg border-2 border-gray-600 py-2 px-4" placeholder="Describa su opinión del producto (500 caracteres)"></textarea>
-                </div>
-                <button type="submit" class="block w-2/12 max-w-xs ml-auto bg-gray-200 text-black rounded-lg px-3 py-3 font-semibold duration-200 hover:bg-yellow-500">Enviar</button>
-            </form>
-        </div>
+            <div class="col-span-2 ml-4 mr-16 my-4">
+                <form name="formValoracion" method="get" action="procesarReview">
+                    <div class="mb-2">
+                        <p class="float-left">Número de estrellas:</p>
+                        <select class="ml-8 w-100 rounded border-2 border-gray-600" name="estrellas">
+                            <option value="1">1 estrella</option>
+                            <option value="2">2 estrellas</option>
+                            <option value="3">3 estrellas</option>
+                            <option value="4">4 estrellas</option>
+                            <option value="5">5 estrellas</option>
+                        </select>
+                    </div>
+                    <div>
+                        <textarea rows="5" name="valoracion" maxlength="500"  class="w-full h-32 rounded-lg border-2 border-gray-600 py-2 px-4" placeholder="Describa su opinión del producto (500 caracteres)"></textarea>
+                    </div>
+                    <input type="hidden" name="idUser" value="{{$sessionAbierta}}">
+                    <input type="hidden" name="idProducto" value="{{$idProducto}}">
+                    <button type="submit" class="block w-2/12 max-w-xs ml-auto bg-gray-200 text-black rounded-lg px-3 py-3 font-semibold duration-200 hover:bg-yellow-500">Enviar</button>
+                </form>
+            </div>
     </div>
+        @endif
+
         <div class="grid grid-cols-4 mt-4">
             <div class="col-span-4 ml-16 mr-16 my-4">
-                <x-comment></x-comment>
+                <?php
+                $reviews = \App\Review::where('idProducto', $idProducto)
+                    ->take(5)
+                    ->get();
+                $cantidad = count($reviews);
+                ?>
+                @if($cantidad==0)
+                    <h1>No hay comentarios</h1>
+                @else
+                    @foreach($reviews as $review)
+                        <x-comment
+                            estrellas="{{$review->estrellas}}"
+                            valoracion="{{$review->valoracion}}"
+                            idUsuario="{{$review->idUser}}"
+                            fecha="{{$review->created_at}}">
+                        </x-comment>
+                    @endforeach
+                @endif
             </div>
         </div>
     </section>

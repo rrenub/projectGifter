@@ -36,7 +36,4 @@ Route::get('/procesarRegister', 'UsuariosController@procesarRegistro');
 Route::get('/filtrar', [\App\Http\Controllers\ShopController::class, 'filtrar']);
 Route::get('/ofertas', [\App\Http\Controllers\ShopController::class, 'ofertas']);
 
-Route::post('/añadirProductoCarrito', [\App\Http\Controllers\ShoppingCartController::class, 'añadirProductoCarrito']);
-Route::get('/tienda/vaciarCarrito', [\App\Http\Controllers\ShoppingCartController::class, 'vaciarCarrito']);
-Route::get('/tienda/eliminarProductoCarrito', [\App\Http\Controllers\ShoppingCartController::class, 'eliminarProductoCarrito']);
-
+Route::get('/procesarReview', 'ReviewsController@procesarReview');

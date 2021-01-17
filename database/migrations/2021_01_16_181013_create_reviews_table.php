@@ -17,6 +17,7 @@ class CreateReviewsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->integer('idUser');
+            $table->integer('idProducto');
             $table->integer('estrellas');
             $table->string('valoracion',500);
         });

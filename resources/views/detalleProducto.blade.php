@@ -129,7 +129,7 @@
 
         <!-- Valoración del producto -->
         <div class="col-span-3 mx-8 my-4">
-            <h1 class="text-2xl tracking-tight font-bold py-2 px-4 text-center border-b-4 border-gray-700">
+            <h1 class="text-3xl tracking-tight font-bold py-2 px-4 text-center border-b-2 border-gray-700">
                 <span class="block text-black xl:inline">Valoración del producto</span>
             </h1>
         </div>
@@ -172,8 +172,8 @@
                     <button type="submit" class="block w-2/12 max-w-xs ml-auto bg-gray-200 text-black rounded-lg px-3 py-3 font-semibold duration-200 hover:bg-yellow-500">Enviar</button>
                 </form>
             </div>
-    </div>
         @endif
+    </div>
 
         <div class="grid grid-cols-4 mt-4">
             <div class="col-span-4 ml-16 mr-16 my-4">

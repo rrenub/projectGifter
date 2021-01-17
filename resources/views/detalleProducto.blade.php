@@ -14,8 +14,8 @@
 <body>
 
 <?php
-    $idProdudcto = $_GET['id'];
-    $detalleProducto = \App\Producto::where('id', $idProdudcto)->get();
+    $idProducto = $_GET['id'];
+    $detalleProducto = \App\Producto::where('id', $idProducto)->get();
 
     $nombre = $detalleProducto[0]['nombre'];
     $descripcion = $detalleProducto[0]['descripcion'];
@@ -23,8 +23,9 @@
     $stock = $detalleProducto[0]['stock'];
     $rebaja = $detalleProducto[0]['rebajado'];
     $precioRebajado = $detalleProducto[0]['precio_rebaja'];
+    $categoria = $detalleProducto[0]['id_categoria'];
 
-    $imagenes = \App\ProductoImg::where('id_producto', $idProdudcto)->get();
+    $imagenes = \App\ProductoImg::where('id_producto', $idProducto)->get();
     ?>
 
 <main class="flex flex-col h-screen">
@@ -75,12 +76,49 @@
 
         <!-- Articulos relacionados -->
 
+        <?php
+        $productosRelacionados = \App\Producto::where('id_categoria', $categoria)
+            ->take(4)
+            ->whereNotIn('id', [$idProducto])
+            ->get();
+        $cantidad = count($productosRelacionados);
+        ?>
+
         <div class="col-span-3 m-8">
             <h1 class="text-2xl tracking-tight font-bold py-2 px-4 text-center border-b-4 border-gray-700">
                 <span class="block text-black xl:inline">Artículos relacionados</span>
             </h1>
-            <div class="justify-center flex flex-wrap">
-
+            <div class="justify-left flex flex-wrap">
+                @if($cantidad==0)
+                    <x-card-item
+                        name="Lo sentimos"
+                        description="No hay artículos relacionados"
+                        price="00"
+                        idProd=""
+                        img="">
+                    </x-card-item>
+                @else
+                @foreach($productosRelacionados as $producto)
+                    @if($producto->rebajado)
+                        <x-card-item-sale
+                            name="{{ $producto->nombre }}"
+                            description="{{ $producto->descripcion }}"
+                            price="{{ $producto->precio }}"
+                            idProd="{{ $producto->id }}"
+                            sale="{{ $producto->precio_rebaja }}"
+                            img="{{ $producto->img }}">
+                        </x-card-item-sale>
+                    @else
+                        <x-card-item
+                            name="{{ $producto->nombre }}"
+                            description="{{ $producto->descripcion }}"
+                            price="{{ $producto->precio }}"
+                            idProd="{{ $producto->id }}"
+                            img="{{ $producto->img }}">
+                        </x-card-item>
+                    @endif
+                @endforeach
+                    @endif
             </div>
         </div>
 

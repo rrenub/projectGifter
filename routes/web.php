@@ -27,6 +27,10 @@ Route::get('/detalleProducto', function () {
     return view('detalleProducto');
 });
 
+Route::get('/tienda/admin/añadirProducto', function () {
+    return view('nuevoProducto');
+});
+
 //  - FUNCIONES -
 
 Route::get('/logOut', 'UsuariosController@cerrarSesion');
@@ -37,12 +41,9 @@ Route::get('/tienda/filtrar', [\App\Http\Controllers\ShopController::class, 'fil
 Route::get('/ofertas', [\App\Http\Controllers\ShopController::class, 'ofertas']);
 Route::get('/tienda/buscar', [\App\Http\Controllers\ShopController::class, 'buscar']);
 
-
 Route::post('/tienda/añadirProductoCarrito', [\App\Http\Controllers\ShoppingCartController::class, 'añadirProductoCarrito']);
 Route::get('/tienda/vaciarCarrito', [\App\Http\Controllers\ShoppingCartController::class, 'vaciarCarrito']);
 Route::get('/tienda/eliminarProductoCarrito', [\App\Http\Controllers\ShoppingCartController::class, 'eliminarProductoCarrito']);
-
-
 Route::get('/procesarReview', 'ReviewsController@procesarReview');
 
 // - PAYPAL

@@ -45,7 +45,7 @@
                                 <span class="sr-only">Editar</span>
                             </th>
                             <th scope="col" class="relative px-6 py-3">
-                                <a href="/tienda" class="mt-2 align-middle whitespace-nowrap inline-flex items-center justify-center px-2 py-2 border border-transparent rounded-md shadow-sm text-xs font-medium text-white bg-yellow-600 duration-200 hover:bg-yellow-400">
+                                <a href="/tienda/admin/añadirProducto" class="mt-2 align-middle whitespace-nowrap inline-flex items-center justify-center px-2 py-2 border border-transparent rounded-md shadow-sm text-xs font-medium text-white bg-yellow-600 duration-200 hover:bg-yellow-400">
                                     Añadir +
                                 </a>
                             </th>
@@ -99,10 +99,14 @@
                                     </td>
                                 @endif
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                    <form action="/tienda/admin/eliminarProducto" method="post">
+                                        <a class="cursor-pointer text-indigo-600 hover:text-indigo-900" onclick="parentElement.submit()">Eliminar</a>
+                                    </form>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <a href="#" class="text-indigo-600 hover:text-indigo-900">Borrar</a>
+                                    <form action="/tienda/admin/editarProducto" method="post">
+                                        <a class="cursor-pointer text-indigo-600 hover:text-indigo-900" onclick="parentElement.submit()">Editar</a>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

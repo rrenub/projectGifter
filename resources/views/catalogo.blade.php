@@ -62,10 +62,14 @@
     </aside>
 
     <aside class="col-span-3">
-        @if(substr($_SERVER['REQUEST_URI'],0,8) == '/filtrar')
+        @if((session('buscando') != null) || (session('filtrando') != null))
             <a href="/tienda" class="mx-4 mt-8 align-middle whitespace-nowrap inline-flex items-center justify-center px-4 py-1 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-700 duration-200 hover:bg-gray-400">
                 Eliminar filtro
             </a>
+        @else
+            <div class="mt-4 mx-4">
+                <x-search-bar></x-search-bar>
+            </div>
         @endif
         <div class="justify-start flex flex-wrap my-6">
             @foreach($productos as $producto)

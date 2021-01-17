@@ -24,7 +24,7 @@
                         <h1 class="text-4xl tracking-tight font-extrabold sm:text-5xl md:text-6xl">
                             <span class="block text-gray-900 xl:inline">Sorprende a</span>
                             <div class="block text-yellow-500 xl:inline">
-                                <span class="typer" id="main" data-words="tu familia,tu novia,tu perro 🐶,tus amigos,tu hija" data-delay="100" data-deleteDelay="2000"></span>
+                                <span class="typer" id="main" data-words="tu familia,tu novia,tu perro 🐶,tus amigos,tu hija,a tu profesor" data-delay="100" data-deleteDelay="2000"></span>
                                 <span class="cursor" data-owner="main"></span>
                             </div>
                         </h1>

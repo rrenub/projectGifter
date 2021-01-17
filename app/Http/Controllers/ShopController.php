@@ -23,7 +23,7 @@ class ShopController extends Controller
         $productosOferta = Producto::select('productos.*',
             DB::raw('(SELECT img FROM productos_img WHERE id_producto = productos.id LIMIT 1) AS img'))
             ->where('rebajado', 1)
-            ->take(3)
+            ->take(4)
             ->get();
 
         return view('index')->with('productos', $productosOferta);

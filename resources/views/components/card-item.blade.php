@@ -15,9 +15,9 @@
                     <h1 class="text-white font-bold text-3xl inline">€{{ $price }}</h1>
                 </div>
                 <div>
-                    <form action="añadirProductoAlCarro" method="post">
+                    <form action="añadirProductoCarrito" method="post">
                         <?= csrf_field() ?>
-                        <input type="hidden" name="idProducto" value="{{ $idProd }}">
+                        <input type="hidden" name="prodID" value="{{ $idProd }}">
                             <button class="px-2 py-1 bg-yellow-500 text-sm text-gray-800 font-semibold rounded">
                                 <img src="/img/shopping_cart-24px.svg">
                             </button>

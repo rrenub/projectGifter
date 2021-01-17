@@ -38,22 +38,20 @@
 
         <!-- Galeria y opcion de compra -->
 
-        <div class="col-span-1 rounded ml-8 mr-4 my-4">
+        <div class="col-span-1 rounded ml-8 mr-4 mt-4">
             <x-gallery
                 :items="$imagenes">
             </x-gallery>
             <div class="w-full px-3 mt-8">
                 <div class="flex">
-                 <button class="block w-full max-w-xs mr-2 bg-gray-200 text-black rounded-lg px-3 py-3 font-semibold duration-200 hover:bg-yellow-500">Comprar</button>
-                 <button class="block w-full max-w-xs ml-2 bg-gray-200 text-black rounded-lg px-3 py-3 font-semibold duration-200 hover:bg-yellow-500">Añadir al carrito</button>
                 </div>
             </div>
         </div>
 
         <!-- Descripcion del articulo -->
 
-        <div class="col-span-2 rounded mr-8 ml-4 my-4">
-            <div class="flex text-4xl tracking-tight font-bold py-4 px-4 border-b-4 border-gray-700">
+        <div class="col-span-2 rounded mr-8 ml-4 mt-4">
+            <div class="flex text-6xl tracking-tight font-bold px-4">
                 <h1 class="w-4/6">
                     <span class="flex text-black xl:inline align-middle">{{$nombre}}</span>
                 </h1>
@@ -73,24 +71,35 @@
             </h1>
             <div class="text-l tracking-tight sm:text-l md:text-l p-6 w-3/4 px-4">
                 <span class="block text-gray-600 xl:inline">{{$descripcion}}</span>
+                <form action="añadirProductoCarrito" method="post" class="mt-6">
+                    <?= csrf_field() ?>
+                    <input type="hidden" name="prodID" value="{{ $idProducto }}">
+                    <button class="flex py-2 px-4 gap-2 items-center bg-yellow-500 text-base text-gray-800 font-semibold rounded">
+                        <span>Añadir al carrito</span>
+                        <img src="/img/shopping_cart-24px.svg">
+                    </button>
+                </form>
             </div>
         </div>
 
         <!-- Articulos relacionados -->
 
         <?php
-        $productosRelacionados = \App\Producto::where('id_categoria', $categoria)
+        $productosRelacionados = \App\Producto::select('productos.*',
+            DB::raw('(SELECT img FROM productos_img WHERE id_producto = productos.id LIMIT 1) AS img'))
+            ->where('id_categoria', $categoria)
             ->take(4)
             ->whereNotIn('id', [$idProducto])
             ->get();
+
         $cantidad = count($productosRelacionados);
         ?>
 
-        <div class="col-span-3 m-8">
-            <h1 class="text-2xl tracking-tight font-bold py-2 px-4 text-center border-b-4 border-gray-700">
+        <div class="col-span-3 mx-8">
+            <h1 class="text-3xl tracking-tight font-bold py-4 text-center border-b-2 border-gray-700">
                 <span class="block text-black xl:inline">Artículos relacionados</span>
             </h1>
-            <div class="justify-left flex flex-wrap">
+            <div class="justify-left flex flex-wrap py-6">
                 @if($cantidad==0)
                     <h1>Lo sentimos, no hay artículos relacionados</h1>
                 @else
@@ -148,11 +157,11 @@
                     <div class="mb-2">
                         <p class="float-left">Número de estrellas:</p>
                         <select class="ml-8 w-100 rounded border-2 border-gray-600" name="estrellas">
-                            <option value="1">1 estrella</option>
-                            <option value="2">2 estrellas</option>
-                            <option value="3">3 estrellas</option>
-                            <option value="4">4 estrellas</option>
-                            <option value="5">5 estrellas</option>
+                            <option value="1">⭐️</option>
+                            <option value="2">⭐️⭐️</option>
+                            <option value="3">⭐️⭐️⭐️</option>
+                            <option value="4">⭐️⭐️⭐️⭐️</option>
+                            <option value="5">⭐️⭐️⭐️⭐️⭐️</option>
                         </select>
                     </div>
                     <div>

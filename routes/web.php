@@ -35,5 +35,17 @@ Route::get('/procesarRegister', 'UsuariosController@procesarRegistro');
 
 Route::get('/filtrar', [\App\Http\Controllers\ShopController::class, 'filtrar']);
 Route::get('/ofertas', [\App\Http\Controllers\ShopController::class, 'ofertas']);
+Route::post('/añadirProductoCarrito', [\App\Http\Controllers\ShoppingCartController::class, 'añadirProductoCarrito']);
+Route::get('/tienda/vaciarCarrito', [\App\Http\Controllers\ShoppingCartController::class, 'vaciarCarrito']);
+Route::get('/eliminarProductoCarrito', [\App\Http\Controllers\ShoppingCartController::class, 'eliminarProductoCarrito']);
+
 
 Route::get('/procesarReview', 'ReviewsController@procesarReview');
+
+// - PAYPAL
+
+Route::get('/tienda/pagarPaypal', 'PaypalController@payWithPayPal');
+Route::get('/tienda/estadoPaypal', 'PaypalController@payPalStatus');
+Route::get('/resultsPay', function (){
+    return view('resultsPay');
+});

@@ -45,7 +45,7 @@ PAYPAL_MODE=sandbox
 
 (Optional) To populate the database with mock data, run the seeders to generate the data for the tables:
 
-``` php artisan db:seed 
+``` php artisan db:seed ```
 
 
 

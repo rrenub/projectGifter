@@ -2,6 +2,8 @@
 
 Gifter is a eCommerce web application for buying gifts. It has a interface Amazon-like to view and filter all the gifts that are being offered
 
+![alt text](https://i.imgur.com/YNzpqpj.png)
+
 ## Features
 
 - Authetication via log-in and register
@@ -18,19 +20,27 @@ Gifter was made using Laravel (PHP) and for the styling we used TailwindCSS for 
 
 Firstly, cloning the project
 
-```git clone https://github.com/rrenub/projectGifter.git```
+```
+git clone https://github.com/rrenub/projectGifter.git
+```
 
 Install composer dependencies for Laravel
 
-```composer install```
+```
+composer install
+```
 
 Install Laravel Mix dependencies
 
-```npm install```
+```
+npm install
+```
 
 And run it:
 
-```npm run dev```
+```
+npm run dev
+```
 
 After the installation, in the .env file add the name of the database you have created and the Paypal API keys for the payments
 
@@ -45,7 +55,9 @@ PAYPAL_MODE=sandbox
 
 (Optional) To populate the database with mock data, run the seeders to generate the data for the tables:
 
-``` php artisan db:seed ```
+```
+php artisan db:seed
+```
 
 
 

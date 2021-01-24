@@ -3,7 +3,7 @@
 Gifter is a eCommerce web application for buying gifts. It has a interface Amazon-like to view and filter all the gifts that are being offered
 </br>
 <p align="center">
-    <img src="https://imgur.com/a/SPoIfwW" alt="Gifter homepage" width="600" height="auto">
+    <img src="https://i.imgur.com/YCyH1vu.png" alt="Gifter homepage" width="600" height="auto">
 </p>
 
 ## Features
